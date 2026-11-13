@@ -109,3 +109,9 @@
 - `readJsonFile` はJSON構文エラー・ファイル欠損時もnullを返し、呼び出し側でスキップする。ログを確認して個別ファイルを修復できる運用を想定。起動時の必須データと任意データの区別は未確認。
 
 - Jest設定（jest.config.js / ts-jest）と依存関係は存在することを確認。package.jsonのtest:pluginはWindows向け `set NODE_ENV=development&& jest src/test` に修正済み。GitHub上の静的確認ではテスト検出対象がsrc/testとなることを確認したが、実行結果は未確認。
+
+
+## 初期化・終了処理の追加確認（2026-11-13）
+- `src/plugin.ts`の`destroy()`から`timerSelector.destroy()`が呼ばれ、参照も`undefined`に戻されることを確認。`OmikujiSelectorTimer.destroy()`は初回timeoutとintervalの両方を解除するため、現行タイマーの終了経路は接続されている。
+- `startReadyCheck()`はサービス取得成功まで無期限に待機する。サービスが起動しない／APIが恒久的に利用できない場合に`init()`が完了しない可能性があるが、待機仕様（わんコメ起動待ち）との兼ね合いがあるため現時点では変更しない。タイムアウト値や再試行終了条件は未確認。
+- `src/test/OmikujiSelectorTimer.test.ts`を確認。destroy前の初回timeout解除を検証するテストが存在する。Jestは未実行。
