@@ -127,3 +127,11 @@
 - 追記: `PostMessage.ts`のコメントが実際の並行スケジュールと矛盾していたため、「開始時刻基準のdelaySecondsで並行スケジュールし、完了を待つ」へ修正。処理順・遅延値の挙動自体は変更していない。
 
 - `src/Modules/components/ThresholdCheck.ts`: match条件のtargetMapはstatus以外を参照する場合も`this.visit.status`を先に評価していた。visitはコンストラクター上optionalのため、未指定時にstatus参照で例外となる可能性がある。optional chainingへ変更し、visit未設定時はstatusを空値として扱う。通常のコメント処理ではvisitが渡されるため通常経路の挙動は不変。確度: 高（静的確認）。
+
+## OneSDK依存関係の更新（2026-11-13）
+- `@onecomme.com/onesdk` を `^5.2.3` から `9.2.0-beta.1` へ更新。ユーザー報告により、旧バージョンでは現行環境で動作せず、9.2.0-beta.1が必要。
+- プレリリース版を意図せず別バージョンへ解決しないよう、package.jsonは完全固定（caretなし）。
+- package-lock.jsonのroot dependencyとSDK package entryも9.2.0-beta.1へ更新。既存lockfileに含まれるaxios / hacktimer依存関係は維持。新バージョンのintegrity値を取得できなかったため、SDK entryのintegrityは削除している。次回npm install時にlockfileが再生成・補完されることを確認する。
+- npm.ioの公開情報では、9.2.0-beta.1はOneComme 9.0.0向けAlpha版で、ライセンス表記はOneComme-Use-Only-1.0。OneComme用プラグインとしての利用範囲は目的に合うと考えられるが、配布物にSDKを同梱する場合はライセンス条件を確認する。
+- OneComme 9.0.0ではSDKの内部型定義の公開停止、プラグインログの分離などが告知されている。現行コードの `types/Plugin` / `types/Comment` / `types/UserData` importが新SDKでも提供されるかは、SDK実体の型定義確認が必要（未確認）。
+- ビルド・テストは実施しない方針。SDK APIとの静的な整合性確認を継続する。
