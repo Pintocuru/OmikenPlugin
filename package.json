@@ -4,7 +4,7 @@
  "description": "わんコメで使える、おみくじBOTプラグイン",
  "scripts": {
   "build": "vite build",
-  "test:plugin": "set NODE_ENV=development&& jest test/plugin.test.ts"
+  "test:plugin": "set NODE_ENV=development&& jest src/test"
  },
  "type": "commonjs",
  "main": "src/plugin.js",
