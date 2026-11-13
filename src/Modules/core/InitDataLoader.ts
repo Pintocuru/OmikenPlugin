@@ -148,7 +148,9 @@ function readJsonFile<T>(filePath: string): T | null {
 // rulesを配列にする
 export function filterTypes(types: Record<TypesType, string[]>, rules: Record<string, RulesType>) {
  return Object.keys(types).reduce((result, typeKey) => {
-  result[typeKey] = types[typeKey].map((id: string) => rules[id]).filter((rule) => rule !== undefined);
+  result[typeKey] = types[typeKey]
+   .filter((id: string) => Object.prototype.hasOwnProperty.call(rules, id))
+   .map((id: string) => rules[id]);
   return result;
  }, {} as Record<TypesType, RulesType[]>);
 }
