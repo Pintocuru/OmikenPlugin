@@ -48,3 +48,16 @@
 - `src/Modules/tasks/OmikujiSelector.ts`: タイマー初期化に `if (0 && immediateResult)` がある。初回即時実行を無効化する意図か、残存コードかを仕様・履歴と照合する。現時点で削除しない。
 - `src/Modules/core/InitDataLoader.ts`: JSON読込失敗時に `null` を返す一方、呼び出し側は `Record<string, T>` として扱う。壊れたJSON／ファイル欠損時の起動継続と利用側の安全性を確認。
 - 上記はソース上の懸念であり、実行再現・仕様確認前の確定バグとは扱わない。
+
+
+## ベースライン調査（2026-11-13）
+- package.json の test:plugin は jest test/plugin.test.ts を指定しているが、実際のテストファイルは src/test/plugin.test.ts にある。指定パスの不一致により、現状のテストコマンドは対象テストを発見できない可能性が高い（確度: 高）。実行環境での再現は未確認。
+- vite.config.ts は src/plugin.ts を CommonJS形式・dist/plugin.js に出力する設定で、package.json の build と整合している。
+- src/Modules/tasks/OmikujiSelector.ts の setupTimers は初回 setTimeout のハンドルを保持していない。clearAllTimers は setInterval のみ解除するため、初回待機中に destroy() が呼ばれても、後からintervalが開始されコールバックが実行される可能性がある（確度: 高）。停止処理の不具合として優先確認する。
+- src/Modules/tasks/OmikujiSelectorTimer.ts は import と空のクラス定義のみで、実装は OmikujiSelector.ts 内にある。現状このファイルを参照しているか未確認。未使用と断定せず、import/ビルド解決を確認する。
+- readJsonFile はファイル欠損・JSON parse失敗時に null を返す。loadDirectoryContents は戻り値を検査せず Record<string, T> に格納する。データ欠損時に後続処理で例外になる可能性がある（確度: 中）。
+- Git Trees API上のソースファイル数は41。Actions workflow定義は見当たらず、GitHub Actionsによる自動検証は未確認。
+
+## 進捗更新
+- [x] package scripts・主要ビルド設定・テスト配置の静的照合
+- [ ] ローカル実行環境でのビルド／テスト実行（GitHub上のファイル参照のみでは実行結果を確認できない）
