@@ -101,3 +101,9 @@
 ## タイマー実行エラーの処理（2026-11-13）
 - `src/Modules/core/InitDataLoader.ts`: timer callback内でOmikujiProcessor.process()のrejectをcatchし、systemMessageで通知するよう修正。タイマー起動経由では呼び出し元がPromiseを待たないため、未処理rejectionになる経路を抑止する。
 - この修正もローカル実行検証は未実施。
+
+
+## データ読み込み・投稿処理レビュー（2026-11-13）
+- `src/Modules/core/InitDataLoader.ts`: JSONファイルの読み込み失敗時に `null` をデータ辞書へ格納していた問題を修正。nullデータは登録せずスキップし、既存のエラーログを残す。破損したプリセット等がnullとして後続処理へ流れることを防ぐ。
+- `src/Modules/api/PostMessage.ts`: `Promise.all` で投稿を並行開始しているが、コメントは「順次処理を保証」と記載。`delaySeconds` は共通の起点から個別に待つ実装のため、単純なfor-awaitへの変更は遅延の意味を変える可能性がある。投稿順序の仕様を確定できないため変更保留。
+- `readJsonFile` はJSON構文エラー・ファイル欠損時もnullを返し、呼び出し側でスキップする。ログを確認して個別ファイルを修復できる運用を想定。起動時の必須データと任意データの区別は未確認。
