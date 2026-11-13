@@ -133,7 +133,7 @@
 - プレリリース版を意図せず別バージョンへ解決しないよう、package.jsonは完全固定（caretなし）。
 - package-lock.jsonのroot dependencyとSDK package entryも9.2.0-beta.1へ更新。既存lockfileに含まれるaxios / hacktimer依存関係は維持。新バージョンのintegrity値を取得できなかったため、SDK entryのintegrityは削除している。次回npm install時にlockfileが再生成・補完されることを確認する。
 - npm.ioの公開情報では、9.2.0-beta.1はOneComme 9.0.0向けAlpha版で、ライセンス表記はOneComme-Use-Only-1.0。OneComme用プラグインとしての利用範囲は目的に合うと考えられるが、配布物にSDKを同梱する場合はライセンス条件を確認する。
-- OneComme 9.0.0ではSDKの内部型定義の公開停止、プラグインログの分離などが告知されている。現行コードの `types/Plugin` / `types/Comment` / `types/UserData` importが新SDKでも提供されるかは、SDK実体の型定義確認が必要（未確認）。
+- OneComme 9.0.0ではSDKの内部型定義の公開停止、プラグインログの分離などが告知されている。現行コードの型importパスは公式の現行型リファレンスに掲載されているが、9.2.0-beta.1のnpmパッケージ実体との完全一致は未確認。
 - ビルド・テストは実施しない方針。SDK APIとの静的な整合性確認を継続する。
 
 ## OneSDK 9.2.0-beta.1 互換性の静的確認（2026-11-13）
@@ -142,10 +142,6 @@
 - OneComme 9.0.0の変更告知には内部専用型の非公開化、コメント検索・取得APIの非公開化、プラグインログの分離がある。OmikenPluginではこれらの非公開APIを直接利用している根拠は見つかっていない。現状はHTTP APIの `/services`、`/comments`、`/comments/test`、`/reactions`、`/speech` を利用している。
 - 9.2.0-beta.1の変更内容は主にOBS 33 / Chromium 142のローカルファイルテンプレート向け接続後リダイレクト。プラグイン側の直接的な変更点は告知上確認できない。
 - 公式資料: OneComme 9.0.0 patch notes、OneSDK型リファレンス、Plugin APIドキュメント。型参照は公開資料上の確認であり、ビルド確認は行わない。
-
-## システム通知送信の失敗処理（2026-11-13）
-- `src/Modules/core/ErrorHandler.ts`: `postSystemMessage()` がHTTPエラー等でrejectした際、呼び出し側でcatchされず未処理Promise rejectionになる経路を修正。送信失敗はconsole.errorへ記録し、元の通知処理へ再帰しない。
-- `systemMessage()`自体は同期関数のまま維持。通知送信の失敗で本来のエラー処理を中断しない。
 
 ## システム通知送信の失敗処理（2026-11-13）
 - `src/Modules/core/ErrorHandler.ts`: `postSystemMessage()` がHTTPエラー等でrejectした際、呼び出し側でcatchされず未処理Promise rejectionになる経路を修正。送信失敗はconsole.errorへ記録し、元の通知処理へ再帰しない。
