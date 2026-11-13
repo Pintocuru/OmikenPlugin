@@ -75,7 +75,7 @@ export class ServiceAPI {
  // カラーコードからRGBColor型のコードを生成
  private colorCodeToRGBColor(colorCode: string): RGBColor {
   const hex = colorCode.replace(/^#/, '');
-  if (hex.length !== 6) throw new Error(`Invalid color code: ${colorCode}`);
+  if (!/^[0-9a-fA-F]{6}$/.test(hex)) throw new Error(`Invalid color code: ${colorCode}`);
   const r = parseInt(hex.substring(0, 2), 16);
   const g = parseInt(hex.substring(2, 4), 16);
   const b = parseInt(hex.substring(4, 6), 16);
