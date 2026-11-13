@@ -123,3 +123,5 @@
 - コードコメント「順次処理を保証」は実装と不一致。現時点ではdelaySecondsの共通起点スケジュールが意図された仕様か未確認のため、実装は変更しない。コメント修正も仕様確認後に行う。
 - `OmikujiSelector.ts`: `setupTimers`は0〜60分のうち1〜60分のみ受け付ける。schema側timerConfig.minutesはnonnegativeで0を許可するが、0分設定はselectorでスキップされる。UI入力制約と一致するか未確認。
 - `InitDataLoader.ts`: `readJsonFile`はJSON parse失敗時にエラー通知後nullを返し、呼び出し元はそのファイルを読み込み結果から除外する。プリセット等の個別ファイルをスキップする意図か、全体ロードを失敗させるべきかは未確認。
+
+- 追記: `PostMessage.ts`のコメントが実際の並行スケジュールと矛盾していたため、「開始時刻基準のdelaySecondsで並行スケジュールし、完了を待つ」へ修正。処理順・遅延値の挙動自体は変更していない。
