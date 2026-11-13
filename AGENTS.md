@@ -125,3 +125,5 @@
 - `InitDataLoader.ts`: `readJsonFile`はJSON parse失敗時にエラー通知後nullを返し、呼び出し元はそのファイルを読み込み結果から除外する。プリセット等の個別ファイルをスキップする意図か、全体ロードを失敗させるべきかは未確認。
 
 - 追記: `PostMessage.ts`のコメントが実際の並行スケジュールと矛盾していたため、「開始時刻基準のdelaySecondsで並行スケジュールし、完了を待つ」へ修正。処理順・遅延値の挙動自体は変更していない。
+
+- `src/Modules/components/ThresholdCheck.ts`: match条件のtargetMapはstatus以外を参照する場合も`this.visit.status`を先に評価していた。visitはコンストラクター上optionalのため、未指定時にstatus参照で例外となる可能性がある。optional chainingへ変更し、visit未設定時はstatusを空値として扱う。通常のコメント処理ではvisitが渡されるため通常経路の挙動は不変。確度: 高（静的確認）。
