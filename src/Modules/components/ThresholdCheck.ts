@@ -70,6 +70,7 @@ export class ThresholdChecker {
 
  // ユーザーの役職
  private matchIsAccess(access: AccessCondition): boolean {
+  if (access === 1) return true;
   if (!this.comment?.data) return false;
 
   const { isOwner, isModerator, isMember } = this.comment.data as {
