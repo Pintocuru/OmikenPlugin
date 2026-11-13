@@ -159,7 +159,7 @@ export class ThresholdChecker {
   if (!this.comment) return false;
 
   const targetMap = {
-   status: this.visit.status,
+   status: this.visit?.status,
    comment: this.comment?.data?.comment,
    name: this.comment?.data?.name,
    displayName: this.comment?.data?.displayName
