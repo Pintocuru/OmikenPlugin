@@ -1,23 +1,23 @@
 {
- "id": "OhayouCounter",
- "name": "おはようカウンター",
- "description": "「おはよう」とコメントしたユーザーの数を数えます",
- "version": "0.0.1",
- "order": 18,
- "tags": ["カウンター", "おはよう"],
- "banner": "img/OhayouCounter.png",
- "item": {
-  "types": {
-   "comment": [],
-   "timer": [],
-   "meta": [],
-   "waitingList": [],
-   "setList": [],
-   "reactions": [],
-   "unused": []
-  },
-  "rules": {},
-  "omikujis": {},
-  "places": {}
- }
+  "id": "OhayouCounter",
+  "name": "おはようカウンター",
+  "description": "「おはよう」とコメントしたユーザーの数を数えます",
+  "version": "0.0.1",
+  "order": 18,
+  "tags": ["カウンター", "おはよう"],
+  "banner": "img/OhayouCounter.png",
+  "item": {
+    "types": {
+      "comment": [],
+      "timer": [],
+      "meta": [],
+      "waitingList": [],
+      "setList": [],
+      "reactions": [],
+      "unused": []
+    },
+    "rules": {},
+    "omikujis": {},
+    "places": {}
+  }
 }

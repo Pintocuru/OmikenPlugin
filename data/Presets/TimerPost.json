@@ -1,96 +1,96 @@
 {
- "id": "TimerPost",
- "name": "タイマー投稿用プリセット",
- "description": "リセット用",
- "version": "0.0.0",
- "order": 12,
- "tags": ["タイマー投稿"],
- "banner": "img/TimerPost.png",
- "item": {
-  "types": {
-   "comment": [],
-   "timer": ["1737082284194-09aib"],
-   "meta": [],
-   "waitingList": [],
-   "setList": [],
-   "reactions": [],
-   "unused": []
-  },
-  "rules": {
-   "1737082284194-09aib": {
-    "id": "1737082284194-09aib",
-    "name": "自動投稿",
-    "description": "",
-    "color": "#66FFFF",
-    "enableIds": ["1737082327791-mzyyn"],
-    "threshold": [
-     {
-      "conditionType": "match",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
-      },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
+  "id": "TimerPost",
+  "name": "タイマー投稿用プリセット",
+  "description": "リセット用",
+  "version": "0.0.0",
+  "order": 12,
+  "tags": ["タイマー投稿"],
+  "banner": "img/TimerPost.png",
+  "item": {
+    "types": {
+      "comment": [],
+      "timer": ["1737082284194-09aib"],
+      "meta": [],
+      "waitingList": [],
+      "setList": [],
+      "reactions": [],
+      "unused": []
+    },
+    "rules": {
+      "1737082284194-09aib": {
+        "id": "1737082284194-09aib",
+        "name": "自動投稿",
+        "description": "",
+        "color": "#66FFFF",
+        "enableIds": ["1737082327791-mzyyn"],
+        "threshold": [
+          {
+            "conditionType": "match",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "timerConfig": {
+          "minutes": "5",
+          "isBaseZero": true
+        }
       }
-     }
-    ],
-    "timerConfig": {
-     "minutes": "5",
-     "isBaseZero": true
+    },
+    "omikujis": {
+      "1737082327791-mzyyn": {
+        "id": "1737082327791-mzyyn",
+        "name": "自動投稿:チャンネル登録",
+        "description": "",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "placeIds": ["1737529867562-t9deg"],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotPink",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "party": "!シーン切り替え1",
+            "content": "<<autobot01>>"
+          }
+        ]
+      }
+    },
+    "places": {
+      "1737529867562-t9deg": {
+        "id": "1737529867562-t9deg",
+        "name": "autobot01",
+        "description": "自動投稿用プレースホルダー",
+        "placeIds": [],
+        "values": [
+          {
+            "value": "チャンネル登録・高評価を押すと、配信主が喜びます。よろしくね。",
+            "weight": 4
+          },
+          {
+            "value": "旧twitterで配信告知してます。フォローしてね！",
+            "weight": 4
+          },
+          {
+            "value": "Discordで活動中！配信主はいつも入ってます。メンバーになって主と話そう！",
+            "weight": 2
+          }
+        ]
+      }
     }
-   }
-  },
-  "omikujis": {
-   "1737082327791-mzyyn": {
-    "id": "1737082327791-mzyyn",
-    "name": "自動投稿:チャンネル登録",
-    "description": "",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "placeIds": ["1737529867562-t9deg"],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotPink",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "party": "!シーン切り替え1",
-      "content": "<<autobot01>>"
-     }
-    ]
-   }
-  },
-  "places": {
-   "1737529867562-t9deg": {
-    "id": "1737529867562-t9deg",
-    "name": "autobot01",
-    "description": "自動投稿用プレースホルダー",
-    "placeIds": [],
-    "values": [
-     {
-      "value": "チャンネル登録・高評価を押すと、配信主が喜びます。よろしくね。",
-      "weight": 4
-     },
-     {
-      "value": "旧twitterで配信告知してます。フォローしてね！",
-      "weight": 4
-     },
-     {
-      "value": "Discordで活動中！配信主はいつも入ってます。メンバーになって主と話そう！",
-      "weight": 2
-     }
-    ]
-   }
   }
- }
 }

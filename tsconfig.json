@@ -12,31 +12,14 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@core/*": [
-        "src/Modules/core/*"
-      ],
-      "@tasks/*": [
-        "src/Modules/tasks/*"
-      ],
-      "@api/*": [
-        "src/Modules/api/*"
-      ],
-      "@components/*": [
-        "src/Modules/components/*"
-      ],
-      "@type": [
-        "src/Modules/type.ts"
-      ]
-    },
+      "@/*": ["src/*"],
+      "@core/*": ["src/Modules/core/*"],
+      "@tasks/*": ["src/Modules/tasks/*"],
+      "@api/*": ["src/Modules/api/*"],
+      "@components/*": ["src/Modules/components/*"],
+      "@type": ["src/Modules/type.ts"]
+    }
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/test/*"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "src/test/*", "*.ts"]
 }

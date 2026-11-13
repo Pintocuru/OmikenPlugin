@@ -50,11 +50,7 @@
         "name": "初見・久しぶり",
         "description": "そのユーザーの配信枠1コメを参照し、初回や久しぶりと挨拶できます。",
         "color": "#4CAF50",
-        "enableIds": [
-          "1731148126492-sqbn5",
-          "1737528424821-qb1ll",
-          "1731149419725-o1ebm"
-        ],
+        "enableIds": ["1731148126492-sqbn5", "1737528424821-qb1ll", "1731149419725-o1ebm"],
         "threshold": [
           {
             "conditionType": "syoken",

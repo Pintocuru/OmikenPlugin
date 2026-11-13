@@ -1,146 +1,146 @@
 {
- "id": "GouseiSuika",
- "name": "スイカジェネレーター",
- "description": "スイカゲーム風のおみくじをコメント1つで。3000点超えなるか!?",
- "version": "0.0.3",
- "author": "Pintocuru",
- "order": 15,
- "tags": ["ポイント", "ランキング", "スイカ"],
- "banner": "img/GouseiSuika.png",
- "item": {
-  "types": {
-   "comment": ["GouseiSuika"],
-   "timer": [],
-   "unused": [],
-   "meta": [],
-   "waitingList": [],
-   "setList": [],
-   "reactions": []
-  },
-  "rules": {
-   "GouseiSuika": {
-    "id": "GouseiSuika",
-    "name": "スイカジェネレーター",
-    "description": "スイカゲーム風のおみくじをコメント1つで。3000点超えなるか!?",
-    "color": "#8BC34A",
-    "enableIds": ["GouseiSuika-normal", "GouseiSuika-over"],
-    "threshold": [
-     {
-      "conditionType": "match",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
-      },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["すいか", "スイカ", "合成大西瓜", "suika", "suica", "西瓜", "水夏"]
-      }
-     }
-    ]
-   }
-  },
-  "omikujis": {
-   "GouseiSuika-normal": {
-    "id": "GouseiSuika-normal",
-    "name": "スイカジェネレーター",
-    "description": "ランキングに入るタイプです",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "script": {
-     "scriptId": "GouseiSuika",
-     "params": {
-      "mode": "0",
-      "isFruit": "true",
-      "isRank": "true"
-     }
+  "id": "GouseiSuika",
+  "name": "スイカジェネレーター",
+  "description": "スイカゲーム風のおみくじをコメント1つで。3000点超えなるか!?",
+  "version": "0.0.3",
+  "author": "Pintocuru",
+  "order": 15,
+  "tags": ["ポイント", "ランキング", "スイカ"],
+  "banner": "img/GouseiSuika.png",
+  "item": {
+    "types": {
+      "comment": ["GouseiSuika"],
+      "timer": [],
+      "unused": [],
+      "meta": [],
+      "waitingList": [],
+      "setList": [],
+      "reactions": []
     },
-    "placeIds": [],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotPink",
-      "iconKey": "Default",
-      "delaySeconds": 3.5,
-      "party": "!シーン切り替え1",
-      "content": "<<message>>"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotYellow",
-      "iconKey": "concentric",
-      "delaySeconds": 8,
-      "party": "!ニュースタイトル表示3",
-      "isSilent": true,
-      "generatorParam": "toast",
-      "content": "<<user>>の<<points>>は、<<winsRank>>位だよ。"
-     }
-    ]
-   },
-   "GouseiSuika-over": {
-    "id": "GouseiSuika-over",
-    "name": "スイカジェネレーター (回数超過)",
-    "description": "6回以降は、参考記録になります。",
-    "rank": 3,
-    "weight": 1,
-    "threshold": [
-     {
-      "conditionType": "count",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 6,
-       "value2": 1
-      },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
+    "rules": {
+      "GouseiSuika": {
+        "id": "GouseiSuika",
+        "name": "スイカジェネレーター",
+        "description": "スイカゲーム風のおみくじをコメント1つで。3000点超えなるか!?",
+        "color": "#8BC34A",
+        "enableIds": ["GouseiSuika-normal", "GouseiSuika-over"],
+        "threshold": [
+          {
+            "conditionType": "match",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["すいか", "スイカ", "合成大西瓜", "suika", "suica", "西瓜", "水夏"]
+            }
+          }
+        ]
       }
-     }
-    ],
-    "script": {
-     "scriptId": "GouseiSuika",
-     "params": {
-      "mode": "0",
-      "isRank": "false",
-      "isFruit": "true"
-     }
     },
-    "placeIds": [],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotPink",
-      "iconKey": "Default",
-      "delaySeconds": 3.5,
-      "party": "!シーン切り替え1",
-      "content": "<<message>>"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotYellow",
-      "iconKey": "concentric",
-      "delaySeconds": 8,
-      "party": "!ニュースタイトル表示3",
-      "isSilent": true,
-      "generatorParam": "toast",
-      "content": "<<user>>は5回を超えてるから、参考記録だよ。"
-     }
-    ]
-   }
-  },
-  "places": {}
- }
+    "omikujis": {
+      "GouseiSuika-normal": {
+        "id": "GouseiSuika-normal",
+        "name": "スイカジェネレーター",
+        "description": "ランキングに入るタイプです",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "script": {
+          "scriptId": "GouseiSuika",
+          "params": {
+            "mode": "0",
+            "isFruit": "true",
+            "isRank": "true"
+          }
+        },
+        "placeIds": [],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotPink",
+            "iconKey": "Default",
+            "delaySeconds": 3.5,
+            "party": "!シーン切り替え1",
+            "content": "<<message>>"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotYellow",
+            "iconKey": "concentric",
+            "delaySeconds": 8,
+            "party": "!ニュースタイトル表示3",
+            "isSilent": true,
+            "generatorParam": "toast",
+            "content": "<<user>>の<<points>>は、<<winsRank>>位だよ。"
+          }
+        ]
+      },
+      "GouseiSuika-over": {
+        "id": "GouseiSuika-over",
+        "name": "スイカジェネレーター (回数超過)",
+        "description": "6回以降は、参考記録になります。",
+        "rank": 3,
+        "weight": 1,
+        "threshold": [
+          {
+            "conditionType": "count",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 6,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "script": {
+          "scriptId": "GouseiSuika",
+          "params": {
+            "mode": "0",
+            "isRank": "false",
+            "isFruit": "true"
+          }
+        },
+        "placeIds": [],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotPink",
+            "iconKey": "Default",
+            "delaySeconds": 3.5,
+            "party": "!シーン切り替え1",
+            "content": "<<message>>"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotYellow",
+            "iconKey": "concentric",
+            "delaySeconds": 8,
+            "party": "!ニュースタイトル表示3",
+            "isSilent": true,
+            "generatorParam": "toast",
+            "content": "<<user>>は5回を超えてるから、参考記録だよ。"
+          }
+        ]
+      }
+    },
+    "places": {}
+  }
 }

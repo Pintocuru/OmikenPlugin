@@ -1,1224 +1,1224 @@
 {
- "id": "YukkuriShokenChecker",
- "name": "ゆっくり霊夢の初見判定",
- "description": "ゆっくり霊夢&ゆっくり魔理沙の、初見判定機能プリセットです",
- "version": "0.0.1",
- "author": "Pintocuru",
- "order": 112,
- "tags": ["Yukkuri", "ゆっくり霊夢", "ゆっくり魔理沙", "カウンター", "チェッカー"],
- "banner": "img/YukkuriShokenChecker.png",
- "item": {
-  "types": {
-   "comment": [
-    "1731154889231-34wxy",
-    "1735917752272-frxet",
-    "1731155583720-5poc7",
-    "1731148078732-vs09v",
-    "1730455954261-hi5sb"
-   ],
-   "timer": [],
-   "unused": [],
-   "meta": [],
-   "waitingList": [],
-   "setList": [],
-   "reactions": []
-  },
-  "rules": {
-   "1731155583720-5poc7": {
-    "id": "1731155583720-5poc7",
-    "name": "初見詐欺",
-    "description": "初見でもないのに初見とコメントした時へのツッコミ。",
-    "color": "#4527A0",
-    "enableIds": [
-     "1735922184799-t8oqj",
-     "1731155764248-k28me",
-     "1735973718170-jdff2",
-     "1731156509378-04ync",
-     "1735974074470-0ajbp"
-    ],
-    "threshold": [
-     {
-      "conditionType": "match",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+  "id": "YukkuriShokenChecker",
+  "name": "ゆっくり霊夢の初見判定",
+  "description": "ゆっくり霊夢&ゆっくり魔理沙の、初見判定機能プリセットです",
+  "version": "0.0.1",
+  "author": "Pintocuru",
+  "order": 112,
+  "tags": ["Yukkuri", "ゆっくり霊夢", "ゆっくり魔理沙", "カウンター", "チェッカー"],
+  "banner": "img/YukkuriShokenChecker.png",
+  "item": {
+    "types": {
+      "comment": [
+        "1731154889231-34wxy",
+        "1735917752272-frxet",
+        "1731155583720-5poc7",
+        "1731148078732-vs09v",
+        "1730455954261-hi5sb"
+      ],
+      "timer": [],
+      "unused": [],
+      "meta": [],
+      "waitingList": [],
+      "setList": [],
+      "reactions": []
+    },
+    "rules": {
+      "1731155583720-5poc7": {
+        "id": "1731155583720-5poc7",
+        "name": "初見詐欺",
+        "description": "初見でもないのに初見とコメントした時へのツッコミ。",
+        "color": "#4527A0",
+        "enableIds": [
+          "1735922184799-t8oqj",
+          "1731155764248-k28me",
+          "1735973718170-jdff2",
+          "1731156509378-04ync",
+          "1735974074470-0ajbp"
+        ],
+        "threshold": [
+          {
+            "conditionType": "match",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["初見", "しょけん", "所見", "syoken", "はじめまして"]
+            }
+          },
+          {
+            "conditionType": "count",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "tc",
+              "value1": 6,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["初見", "しょけん", "所見", "syoken", "はじめまして"]
-      }
-     },
-     {
-      "conditionType": "count",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "tc",
-       "value1": 6,
-       "value2": 1
+      "1731154889231-34wxy": {
+        "id": "1731154889231-34wxy",
+        "name": "ギフト",
+        "description": "ギフト(メンバー加入含む)をくださった方へのお礼",
+        "color": "#FFEB3B",
+        "enableIds": ["1731155125168-cfu88", "1731155030049-srmcn", "1731155187246-xn0mv", "1731155301283-ro22u"],
+        "threshold": [
+          {
+            "conditionType": "gift",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ]
-   },
-   "1731154889231-34wxy": {
-    "id": "1731154889231-34wxy",
-    "name": "ギフト",
-    "description": "ギフト(メンバー加入含む)をくださった方へのお礼",
-    "color": "#FFEB3B",
-    "enableIds": ["1731155125168-cfu88", "1731155030049-srmcn", "1731155187246-xn0mv", "1731155301283-ro22u"],
-    "threshold": [
-     {
-      "conditionType": "gift",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731148078732-vs09v": {
+        "id": "1731148078732-vs09v",
+        "name": "初見・久しぶり",
+        "description": "そのユーザーの配信枠1コメを参照し、初回や久しぶりと挨拶します。",
+        "color": "#4CAF50",
+        "enableIds": [
+          "1731148126492-sqbn5",
+          "1731149012459-vcc4r",
+          "1730456695760-5zb8i",
+          "1730456872841-c9gwr",
+          "1731149419725-o1ebm",
+          "1731149560925-musjw"
+        ],
+        "threshold": [
+          {
+            "conditionType": "syoken",
+            "coolDown": 3,
+            "syoken": 4,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ]
-   },
-   "1731148078732-vs09v": {
-    "id": "1731148078732-vs09v",
-    "name": "初見・久しぶり",
-    "description": "そのユーザーの配信枠1コメを参照し、初回や久しぶりと挨拶します。",
-    "color": "#4CAF50",
-    "enableIds": [
-     "1731148126492-sqbn5",
-     "1731149012459-vcc4r",
-     "1730456695760-5zb8i",
-     "1730456872841-c9gwr",
-     "1731149419725-o1ebm",
-     "1731149560925-musjw"
-    ],
-    "threshold": [
-     {
-      "conditionType": "syoken",
-      "coolDown": 3,
-      "syoken": 4,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1730455954261-hi5sb": {
+        "id": "1730455954261-hi5sb",
+        "name": "コメント数チェック",
+        "description": "配信枠でのコメント数や、個人のコメント数をカウントします",
+        "color": "#3F51B5",
+        "enableIds": ["1730456057476-pw29g", "1730456230208-vqklr", "1730456354800-4sj0v"],
+        "threshold": []
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
+      "1735917752272-frxet": {
+        "id": "1735917752272-frxet",
+        "name": "ホントの初見",
+        "description": "本当に初見の人が初見と書いた時。総数5回まででかつ、前回コメントから1時間以内のコメントに対応。",
+        "color": "#9575CD",
+        "enableIds": ["1735918104015-dtdcd", "1735917872674-wk264"],
+        "threshold": [
+          {
+            "conditionType": "match",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["初見", "しょけん", "所見", "syoken", "はじめまして"]
+            }
+          },
+          {
+            "conditionType": "count",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "min",
+              "unit": "tc",
+              "value1": 5,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ]
       }
-     }
-    ]
-   },
-   "1730455954261-hi5sb": {
-    "id": "1730455954261-hi5sb",
-    "name": "コメント数チェック",
-    "description": "配信枠でのコメント数や、個人のコメント数をカウントします",
-    "color": "#3F51B5",
-    "enableIds": ["1730456057476-pw29g", "1730456230208-vqklr", "1730456354800-4sj0v"],
-    "threshold": []
-   },
-   "1735917752272-frxet": {
-    "id": "1735917752272-frxet",
-    "name": "ホントの初見",
-    "description": "本当に初見の人が初見と書いた時。総数5回まででかつ、前回コメントから1時間以内のコメントに対応。",
-    "color": "#9575CD",
-    "enableIds": ["1735918104015-dtdcd", "1735917872674-wk264"],
-    "threshold": [
-     {
-      "conditionType": "match",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+    },
+    "omikujis": {
+      "1730456057476-pw29g": {
+        "id": "1730456057476-pw29g",
+        "name": "配信枠:100回",
+        "description": "その配信枠のコメント数が100ごとに反応します",
+        "rank": 1,
+        "weight": 1,
+        "threshold": [
+          {
+            "conditionType": "count",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "loop",
+              "unit": "lc",
+              "value1": 100,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "joy01",
+            "delaySeconds": 0,
+            "content": "この配信の<<lc>>回目のコメントは、<<user>>さんだよ。"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!ニュースタイトル表示3"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["初見", "しょけん", "所見", "syoken", "はじめまして"]
-      }
-     },
-     {
-      "conditionType": "count",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "min",
-       "unit": "tc",
-       "value1": 5,
-       "value2": 1
+      "1730456230208-vqklr": {
+        "id": "1730456230208-vqklr",
+        "name": "配信枠:200回",
+        "description": "その配信枠のコメント数が200ごとに反応します",
+        "rank": 2,
+        "weight": 1,
+        "threshold": [
+          {
+            "conditionType": "count",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "loop",
+              "unit": "lc",
+              "value1": 200,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "fun03",
+            "delaySeconds": 0,
+            "content": "この配信の<<lc>>回目のコメントは、<<user>>さんだぜ。"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!ニュースタイトル表示3"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ]
-   }
-  },
-  "omikujis": {
-   "1730456057476-pw29g": {
-    "id": "1730456057476-pw29g",
-    "name": "配信枠:100回",
-    "description": "その配信枠のコメント数が100ごとに反応します",
-    "rank": 1,
-    "weight": 1,
-    "threshold": [
-     {
-      "conditionType": "count",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "loop",
-       "unit": "lc",
-       "value1": 100,
-       "value2": 1
+      "1730456354800-4sj0v": {
+        "id": "1730456354800-4sj0v",
+        "name": "個人総合:100",
+        "description": "個人の総合コメント数が100ごとに反応します",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [
+          {
+            "conditionType": "count",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "loop",
+              "unit": "tc",
+              "value1": 100,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "joy02",
+            "delaySeconds": 0,
+            "content": "<<user>>さんのコメントが、<<tc>>回になったわ。たくさんのコメント、ありがとう！"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!ニュースタイトル表示3"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "joy01",
-      "delaySeconds": 0,
-      "content": "この配信の<<lc>>回目のコメントは、<<user>>さんだよ。"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!ニュースタイトル表示3"
-     }
-    ]
-   },
-   "1730456230208-vqklr": {
-    "id": "1730456230208-vqklr",
-    "name": "配信枠:200回",
-    "description": "その配信枠のコメント数が200ごとに反応します",
-    "rank": 2,
-    "weight": 1,
-    "threshold": [
-     {
-      "conditionType": "count",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "loop",
-       "unit": "lc",
-       "value1": 200,
-       "value2": 1
+      "1730456695760-5zb8i": {
+        "id": "1730456695760-5zb8i",
+        "name": "久しぶり1",
+        "description": "7日経過後にコメントしたときのお返事です。",
+        "rank": 1,
+        "weight": 3,
+        "threshold": [
+          {
+            "conditionType": "syoken",
+            "coolDown": 3,
+            "syoken": 2,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": ["1730456801704-8lpzk"],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "joy01",
+            "delaySeconds": 0,
+            "content": "<<user>>さん<<WelcomeAgain01>>"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!シーン切り替え1"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "fun03",
-      "delaySeconds": 0,
-      "content": "この配信の<<lc>>回目のコメントは、<<user>>さんだぜ。"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!ニュースタイトル表示3"
-     }
-    ]
-   },
-   "1730456354800-4sj0v": {
-    "id": "1730456354800-4sj0v",
-    "name": "個人総合:100",
-    "description": "個人の総合コメント数が100ごとに反応します",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [
-     {
-      "conditionType": "count",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "loop",
-       "unit": "tc",
-       "value1": 100,
-       "value2": 1
+      "1730456872841-c9gwr": {
+        "id": "1730456872841-c9gwr",
+        "name": "久しぶり2",
+        "description": "7日経過後にコメントしたときのお返事。同一枠の連続配信の場合でも、ちゃんと反応するはず。",
+        "rank": 1,
+        "weight": 2,
+        "threshold": [
+          {
+            "conditionType": "syoken",
+            "coolDown": 3,
+            "syoken": 2,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": ["1730456953853-2kr1z"],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "joy01",
+            "delaySeconds": 0,
+            "content": "<<WelcomeAgain02>>"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!シーン切り替え1"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "joy02",
-      "delaySeconds": 0,
-      "content": "<<user>>さんのコメントが、<<tc>>回になったわ。たくさんのコメント、ありがとう！"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!ニュースタイトル表示3"
-     }
-    ]
-   },
-   "1730456695760-5zb8i": {
-    "id": "1730456695760-5zb8i",
-    "name": "久しぶり1",
-    "description": "7日経過後にコメントしたときのお返事です。",
-    "rank": 1,
-    "weight": 3,
-    "threshold": [
-     {
-      "conditionType": "syoken",
-      "coolDown": 3,
-      "syoken": 2,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731148126492-sqbn5": {
+        "id": "1731148126492-sqbn5",
+        "name": "初見1",
+        "description": "初めてコメントした方への挨拶です。",
+        "rank": 2,
+        "weight": 3,
+        "threshold": [
+          {
+            "conditionType": "syoken",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": ["1731148195677-a91wm"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!初見"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "joy01",
+            "delaySeconds": 1.5,
+            "content": "<<WelcomeSyoken01>>"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 1.5,
+            "content": "!レベルアップ"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": ["1730456801704-8lpzk"],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "joy01",
-      "delaySeconds": 0,
-      "content": "<<user>>さん<<WelcomeAgain01>>"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!シーン切り替え1"
-     }
-    ]
-   },
-   "1730456872841-c9gwr": {
-    "id": "1730456872841-c9gwr",
-    "name": "久しぶり2",
-    "description": "7日経過後にコメントしたときのお返事。同一枠の連続配信の場合でも、ちゃんと反応するはず。",
-    "rank": 1,
-    "weight": 2,
-    "threshold": [
-     {
-      "conditionType": "syoken",
-      "coolDown": 3,
-      "syoken": 2,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731149012459-vcc4r": {
+        "id": "1731149012459-vcc4r",
+        "name": "初見2",
+        "description": "初めてコメントした方への挨拶。わんコメ基準なので、過去データがなければ誰もが初見になります。",
+        "rank": 2,
+        "weight": 2,
+        "threshold": [
+          {
+            "conditionType": "syoken",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": ["1731148223609-ya4xm"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!初見"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "joy01",
+            "delaySeconds": 1.5,
+            "content": "<<WelcomeSyoken02>>"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 1.5,
+            "content": "!レベルアップ"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": ["1730456953853-2kr1z"],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "joy01",
-      "delaySeconds": 0,
-      "content": "<<WelcomeAgain02>>"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!シーン切り替え1"
-     }
-    ]
-   },
-   "1731148126492-sqbn5": {
-    "id": "1731148126492-sqbn5",
-    "name": "初見1",
-    "description": "初めてコメントした方への挨拶です。",
-    "rank": 2,
-    "weight": 3,
-    "threshold": [
-     {
-      "conditionType": "syoken",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731149419725-o1ebm": {
+        "id": "1731149419725-o1ebm",
+        "name": "こんにちは1",
+        "description": "その配信枠の1コメでのお返事です。",
+        "rank": 0,
+        "weight": 3,
+        "threshold": [
+          {
+            "conditionType": "syoken",
+            "coolDown": 3,
+            "syoken": 3,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": ["1731149450144-4z43k"],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "fun01",
+            "delaySeconds": 0,
+            "content": "<<WelcomeHi01>>"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!シーン切り替え1"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": ["1731148195677-a91wm"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!初見"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "joy01",
-      "delaySeconds": 1.5,
-      "content": "<<WelcomeSyoken01>>"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 1.5,
-      "content": "!レベルアップ"
-     }
-    ]
-   },
-   "1731149012459-vcc4r": {
-    "id": "1731149012459-vcc4r",
-    "name": "初見2",
-    "description": "初めてコメントした方への挨拶。わんコメ基準なので、過去データがなければ誰もが初見になります。",
-    "rank": 2,
-    "weight": 2,
-    "threshold": [
-     {
-      "conditionType": "syoken",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731149560925-musjw": {
+        "id": "1731149560925-musjw",
+        "name": "こんにちは2",
+        "description": "その配信枠の1コメでのお返事です。",
+        "rank": 0,
+        "weight": 2,
+        "threshold": [
+          {
+            "conditionType": "syoken",
+            "coolDown": 3,
+            "syoken": 3,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": ["1731149461424-arcth"],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "joy03",
+            "delaySeconds": 0,
+            "content": "<<WelcomeHi02>>"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!シーン切り替え1"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": ["1731148223609-ya4xm"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!初見"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "joy01",
-      "delaySeconds": 1.5,
-      "content": "<<WelcomeSyoken02>>"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 1.5,
-      "content": "!レベルアップ"
-     }
-    ]
-   },
-   "1731149419725-o1ebm": {
-    "id": "1731149419725-o1ebm",
-    "name": "こんにちは1",
-    "description": "その配信枠の1コメでのお返事です。",
-    "rank": 0,
-    "weight": 3,
-    "threshold": [
-     {
-      "conditionType": "syoken",
-      "coolDown": 3,
-      "syoken": 3,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731155030049-srmcn": {
+        "id": "1731155030049-srmcn",
+        "name": "ギフト:default02",
+        "description": "ギフト(メンバー加入含む)をしてくださった方へのお礼を、ゆっくり魔理沙がしてくれるぜ",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!金額表示"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0.3,
+            "content": "!kinoko"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "joy03",
+            "delaySeconds": 0.5,
+            "party": "!シーン切り替え1",
+            "content": "やったぜ!<<user>>さんからギフトを頂いたぜ。これを元手に配信に精を出すぜ。ありがとだぜ!"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": ["1731149450144-4z43k"],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "fun01",
-      "delaySeconds": 0,
-      "content": "<<WelcomeHi01>>"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!シーン切り替え1"
-     }
-    ]
-   },
-   "1731149560925-musjw": {
-    "id": "1731149560925-musjw",
-    "name": "こんにちは2",
-    "description": "その配信枠の1コメでのお返事です。",
-    "rank": 0,
-    "weight": 2,
-    "threshold": [
-     {
-      "conditionType": "syoken",
-      "coolDown": 3,
-      "syoken": 3,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731155125168-cfu88": {
+        "id": "1731155125168-cfu88",
+        "name": "ギフト:default01",
+        "description": "ギフト(メンバー加入含む)をしてくださった方へのお礼を、ゆっくり霊夢がしてくれます",
+        "rank": 0,
+        "weight": 3,
+        "threshold": [],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!金額表示"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0.3,
+            "content": "!saisen_hako"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "joy03",
+            "delaySeconds": 0.5,
+            "party": "!シーン切り替え1",
+            "content": "<<user>>さん、ギフトありがとう!これからも配信続けていくわ。応援してね!"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": ["1731149461424-arcth"],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "joy03",
-      "delaySeconds": 0,
-      "content": "<<WelcomeHi02>>"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!シーン切り替え1"
-     }
-    ]
-   },
-   "1731155030049-srmcn": {
-    "id": "1731155030049-srmcn",
-    "name": "ギフト:default02",
-    "description": "ギフト(メンバー加入含む)をしてくださった方へのお礼を、ゆっくり魔理沙がしてくれるぜ",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!金額表示"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0.3,
-      "content": "!kinoko"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "joy03",
-      "delaySeconds": 0.5,
-      "party": "!シーン切り替え1",
-      "content": "やったぜ!<<user>>さんからギフトを頂いたぜ。これを元手に配信に精を出すぜ。ありがとだぜ!"
-     }
-    ]
-   },
-   "1731155125168-cfu88": {
-    "id": "1731155125168-cfu88",
-    "name": "ギフト:default01",
-    "description": "ギフト(メンバー加入含む)をしてくださった方へのお礼を、ゆっくり霊夢がしてくれます",
-    "rank": 0,
-    "weight": 3,
-    "threshold": [],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!金額表示"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0.3,
-      "content": "!saisen_hako"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "joy03",
-      "delaySeconds": 0.5,
-      "party": "!シーン切り替え1",
-      "content": "<<user>>さん、ギフトありがとう!これからも配信続けていくわ。応援してね!"
-     }
-    ]
-   },
-   "1731155187246-xn0mv": {
-    "id": "1731155187246-xn0mv",
-    "name": "ギフト:over1000",
-    "description": "ギフト金額が1000pt以上(または、黄色スパチャ以上)のときの返事です",
-    "rank": 1,
-    "weight": 1,
-    "threshold": [
-     {
-      "conditionType": "gift",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 4,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731155187246-xn0mv": {
+        "id": "1731155187246-xn0mv",
+        "name": "ギフト:over1000",
+        "description": "ギフト金額が1000pt以上(または、黄色スパチャ以上)のときの返事です",
+        "rank": 1,
+        "weight": 1,
+        "threshold": [
+          {
+            "conditionType": "gift",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 4,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!金額表示"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0.3,
+            "content": "!saisen_hako"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "love02",
+            "delaySeconds": 0.5,
+            "party": "!シーン切り替え1",
+            "content": "<<price>>ポイント!! <<user>>さん、こんなに貰っちゃっていいの!?もう私達頑張るしかないじゃない!"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!金額表示"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0.3,
-      "content": "!saisen_hako"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "love02",
-      "delaySeconds": 0.5,
-      "party": "!シーン切り替え1",
-      "content": "<<price>>ポイント!! <<user>>さん、こんなに貰っちゃっていいの!?もう私達頑張るしかないじゃない!"
-     }
-    ]
-   },
-   "1731155301283-ro22u": {
-    "id": "1731155301283-ro22u",
-    "name": "ギフト:over2000",
-    "description": "ギフト金額が2000pt以上(または、オレンジスパチャ以上)のときの返事です",
-    "rank": 2,
-    "weight": 1,
-    "threshold": [
-     {
-      "conditionType": "gift",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 5,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731155301283-ro22u": {
+        "id": "1731155301283-ro22u",
+        "name": "ギフト:over2000",
+        "description": "ギフト金額が2000pt以上(または、オレンジスパチャ以上)のときの返事です",
+        "rank": 2,
+        "weight": 1,
+        "threshold": [
+          {
+            "conditionType": "gift",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 5,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!金額表示"
+          },
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0.3,
+            "content": "!kinoko"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "love03",
+            "delaySeconds": 0.5,
+            "party": "!シーン切り替え1",
+            "content": "<<price>>ポイント!!いいのか?<<user>>さん!あなたの心意気に感謝するぜ!"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!金額表示"
-     },
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0.3,
-      "content": "!kinoko"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "love03",
-      "delaySeconds": 0.5,
-      "party": "!シーン切り替え1",
-      "content": "<<price>>ポイント!!いいのか?<<user>>さん!あなたの心意気に感謝するぜ!"
-     }
-    ]
-   },
-   "1731155764248-k28me": {
-    "id": "1731155764248-k28me",
-    "name": "初見詐欺011",
-    "description": "初見でもないのに初見とコメントした人へのツッコミ",
-    "rank": 0,
-    "weight": 10,
-    "threshold": [],
-    "status": "",
-    "placeIds": ["1731155882263-4ja9n"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!初見"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "contempt02",
-      "delaySeconds": 1.5,
-      "party": "!間抜け5",
-      "content": "<<WelcomeSagi011>>"
-     }
-    ]
-   },
-   "1731156509378-04ync": {
-    "id": "1731156509378-04ync",
-    "name": "初見詐欺021",
-    "description": "すいぶん経つのに未だに初見とコメントする人へのツッコミ。友人に初見です！としつこく迫る顔の厚さよ。",
-    "rank": 0,
-    "weight": 4,
-    "threshold": [
-     {
-      "conditionType": "count",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "tc",
-       "value1": 100,
-       "value2": 1
+      "1731155764248-k28me": {
+        "id": "1731155764248-k28me",
+        "name": "初見詐欺011",
+        "description": "初見でもないのに初見とコメントした人へのツッコミ",
+        "rank": 0,
+        "weight": 10,
+        "threshold": [],
+        "status": "",
+        "placeIds": ["1731155882263-4ja9n"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!初見"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "contempt02",
+            "delaySeconds": 1.5,
+            "party": "!間抜け5",
+            "content": "<<WelcomeSagi011>>"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": ["1731156154823-jl5w6"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!初見"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "sorry02",
-      "delaySeconds": 1.5,
-      "party": "!ビシッとツッコミ1",
-      "content": "<<WelcomeSagi02>>"
-     }
-    ]
-   },
-   "1735917872674-wk264": {
-    "id": "1735917872674-wk264",
-    "name": "ホントの初見02",
-    "description": "総コメント数が5回以下のユーザーが「初見」とコメントしたときの返事です。5回までだぜ！",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!初見"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "love03",
-      "delaySeconds": 1.5,
-      "party": "!レベルアップ",
-      "content": "はじめましてだぜ、<<user>>さん!私はゆっくり魔理沙だぜ。高評価を押してほしいんだぜ。"
-     }
-    ]
-   },
-   "1735918104015-dtdcd": {
-    "id": "1735918104015-dtdcd",
-    "name": "ホントの初見01",
-    "description": "総コメント数が5回以下のユーザーが「初見」とコメントしたときの返事です。5回までだよ！",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!初見"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "joy03",
-      "delaySeconds": 1.5,
-      "party": "!レベルアップ",
-      "content": "はじめまして。<<user>>さんが来てくれて嬉しいわ。私はゆっくり霊夢よ。チャンネル登録するなら今のうち！"
-     }
-    ]
-   },
-   "1735922184799-t8oqj": {
-    "id": "1735922184799-t8oqj",
-    "name": "初見詐欺010",
-    "description": "初見詐欺を連投した場合",
-    "rank": 5,
-    "weight": 1,
-    "threshold": [
-     {
-      "conditionType": "target",
-      "target": null,
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
+      "1731156509378-04ync": {
+        "id": "1731156509378-04ync",
+        "name": "初見詐欺021",
+        "description": "すいぶん経つのに未だに初見とコメントする人へのツッコミ。友人に初見です！としつこく迫る顔の厚さよ。",
+        "rank": 0,
+        "weight": 4,
+        "threshold": [
+          {
+            "conditionType": "count",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "tc",
+              "value1": 100,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": ["1731156154823-jl5w6"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!初見"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "sorry02",
+            "delaySeconds": 1.5,
+            "party": "!ビシッとツッコミ1",
+            "content": "<<WelcomeSagi02>>"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
-      }
-     }
-    ],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "party": "",
-      "content": "!初見"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "contempt01",
-      "delaySeconds": 1.6,
-      "party": "!クイズ不正解1",
-      "content": "初見詐欺は連投するものではないわ。他の誰かにコメントを頼んでみるのもいいわね。"
-     }
-    ]
-   },
-   "1735973718170-jdff2": {
-    "id": "1735973718170-jdff2",
-    "name": "初見詐欺012",
-    "description": "初見でもないのに初見とコメントした人を見抜けなかった場合",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "party": "",
-      "content": "!初見"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "joy03",
-      "delaySeconds": 1.5,
-      "party": "!レベルアップ",
-      "content": "<<user>>さん、初めまして!ゆっくりしていってね。"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "anger01",
-      "delaySeconds": 5,
-      "party": "!呪いの旋律",
-      "content": "だましたわね<<user>>さん。こんな可愛い巫女をひどいめに合わせたのね!"
-     }
-    ]
-   },
-   "1735974074470-0ajbp": {
-    "id": "1735974074470-0ajbp",
-    "name": "初見詐欺022",
-    "description": "あなたが初見と言ったから、今日は初見記念日",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [
-     {
-      "conditionType": "count",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "tc",
-       "value1": 100,
-       "value2": 1
+      "1735917872674-wk264": {
+        "id": "1735917872674-wk264",
+        "name": "ホントの初見02",
+        "description": "総コメント数が5回以下のユーザーが「初見」とコメントしたときの返事です。5回までだぜ！",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!初見"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "love03",
+            "delaySeconds": 1.5,
+            "party": "!レベルアップ",
+            "content": "はじめましてだぜ、<<user>>さん!私はゆっくり魔理沙だぜ。高評価を押してほしいんだぜ。"
+          }
+        ]
       },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ"]
+      "1735918104015-dtdcd": {
+        "id": "1735918104015-dtdcd",
+        "name": "ホントの初見01",
+        "description": "総コメント数が5回以下のユーザーが「初見」とコメントしたときの返事です。5回までだよ！",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!初見"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "joy03",
+            "delaySeconds": 1.5,
+            "party": "!レベルアップ",
+            "content": "はじめまして。<<user>>さんが来てくれて嬉しいわ。私はゆっくり霊夢よ。チャンネル登録するなら今のうち！"
+          }
+        ]
+      },
+      "1735922184799-t8oqj": {
+        "id": "1735922184799-t8oqj",
+        "name": "初見詐欺010",
+        "description": "初見詐欺を連投した場合",
+        "rank": 5,
+        "weight": 1,
+        "threshold": [
+          {
+            "conditionType": "target",
+            "target": null,
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "party": "",
+            "content": "!初見"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "contempt01",
+            "delaySeconds": 1.6,
+            "party": "!クイズ不正解1",
+            "content": "初見詐欺は連投するものではないわ。他の誰かにコメントを頼んでみるのもいいわね。"
+          }
+        ]
+      },
+      "1735973718170-jdff2": {
+        "id": "1735973718170-jdff2",
+        "name": "初見詐欺012",
+        "description": "初見でもないのに初見とコメントした人を見抜けなかった場合",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "party": "",
+            "content": "!初見"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "joy03",
+            "delaySeconds": 1.5,
+            "party": "!レベルアップ",
+            "content": "<<user>>さん、初めまして!ゆっくりしていってね。"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "anger01",
+            "delaySeconds": 5,
+            "party": "!呪いの旋律",
+            "content": "だましたわね<<user>>さん。こんな可愛い巫女をひどいめに合わせたのね!"
+          }
+        ]
+      },
+      "1735974074470-0ajbp": {
+        "id": "1735974074470-0ajbp",
+        "name": "初見詐欺022",
+        "description": "あなたが初見と言ったから、今日は初見記念日",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [
+          {
+            "conditionType": "count",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "tc",
+              "value1": 100,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ"]
+            }
+          }
+        ],
+        "status": "",
+        "placeIds": [],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "reimu",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "content": "!初見"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "surprise02",
+            "delaySeconds": 1.5,
+            "party": "!レベルアップ",
+            "content": "そんなに私に会いたかったか、<<user>>さん！いいぜ、また「初見」ってコメントしてほしいぜ！"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "reimu",
+            "iconKey": "anger02",
+            "delaySeconds": 5,
+            "party": "!ビシッとツッコミ1",
+            "content": "魔理沙！怒るわよ。BOTの私たちが配信主に迷惑かけちゃダメでしょ。"
+          }
+        ]
       }
-     }
-    ],
-    "status": "",
-    "placeIds": [],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "reimu",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "content": "!初見"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "surprise02",
-      "delaySeconds": 1.5,
-      "party": "!レベルアップ",
-      "content": "そんなに私に会いたかったか、<<user>>さん！いいぜ、また「初見」ってコメントしてほしいぜ！"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "reimu",
-      "iconKey": "anger02",
-      "delaySeconds": 5,
-      "party": "!ビシッとツッコミ1",
-      "content": "魔理沙！怒るわよ。BOTの私たちが配信主に迷惑かけちゃダメでしょ。"
-     }
-    ]
-   }
-  },
-  "places": {
-   "1730456801704-8lpzk": {
-    "id": "1730456801704-8lpzk",
-    "name": "WelcomeAgain01",
-    "description": "",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 9,
-      "value": "、久しぶり!また会えたね。"
-     },
-     {
-      "weight": 7,
-      "value": "、お久しぶりね!また会えたことを嬉しく思うわ。"
-     },
-     {
-      "weight": 5,
-      "value": "が久々に来たよ。挨拶しなきゃ!"
-     }
-    ]
-   },
-   "1730456953853-2kr1z": {
-    "id": "1730456953853-2kr1z",
-    "name": "WelcomeAgain02",
-    "description": "",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 7,
-      "value": "おっ、<<user>>さんだぜ。久しぶり!ゆっくりしていってね!"
-     },
-     {
-      "weight": 5,
-      "value": "<<user>>さん! また来てくれたんだぜ、会いたかったと配信者は嬉し涙だぜ。"
-     }
-    ]
-   },
-   "1731148195677-a91wm": {
-    "id": "1731148195677-a91wm",
-    "name": "WelcomeSyoken01",
-    "description": "",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "<<user>>さん、初めまして!ゆっくりしていってね。"
-     },
-     {
-      "weight": 1,
-      "value": "初見の<<user>>さん、コメントありがとう!とっても嬉しいわ!"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さん、来てくれてありがとう!何か聞きたいことがあれば、気軽にどうぞ!"
-     }
-    ]
-   },
-   "1731148223609-ya4xm": {
-    "id": "1731148223609-ya4xm",
-    "name": "WelcomeSyoken02",
-    "description": "",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "おっ、<<user>>さんが初めてのコメントだぜ!ようこそだぜ。"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さん、ようこそ!コメント助かるぜ～!"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さんいらっしゃいだぜ。あなたのコメントでこの配信も一段と盛り上がるぜ～"
-     }
-    ]
-   },
-   "1731149450144-4z43k": {
-    "id": "1731149450144-4z43k",
-    "name": "WelcomeHi01",
-    "description": "",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "<<user>>さん、こんにちは!ゆっくりしていってね。"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さん、また来てくれたね。ようこそ。"
-     }
-    ]
-   },
-   "1731149461424-arcth": {
-    "id": "1731149461424-arcth",
-    "name": "WelcomeHi02",
-    "description": "",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "おっ、<<user>>さんだ。これで<<tc>>回目のコメントだぜ"
-     },
-     {
-      "weight": 1,
-      "value": "今日もコメントありがとうだぜ、<<user>>さん。"
-     }
-    ]
-   },
-   "1731155882263-4ja9n": {
-    "id": "1731155882263-4ja9n",
-    "name": "WelcomeSagi011",
-    "description": "",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "<<user>>さん…あなた初見じゃないでしょ。"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さん、初めまし…あなた初見ではないわね?"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さん、初めまして…なんて言ってるけど、絶対どこかで会ってるわ。"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さん、どこかで見たような…なんていうか、運命を感じるわ。"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さん、前にも会った気がするんだけど、覚えてない？"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さん、「初見です」って言うのやめて、もう顔なじみよね。"
-     },
-     {
-      "weight": 1,
-      "value": "<<user>>さん、どこか見覚えがあるわ。以前にもお話したような気が…"
-     }
-    ]
-   },
-   "1731156154823-jl5w6": {
-    "id": "1731156154823-jl5w6",
-    "name": "WelcomeSagi02",
-    "description": "",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 3,
-      "value": "おい!<<user>>さん初見ちゃうやろ!<<tc>>回もコメントくれてるぜ!?"
-     },
-     {
-      "weight": 2,
-      "value": "<<user>>さん、まさか私を騙そうとしてるのか？私はあなたのことをよく知っているぜ。"
-     },
-     {
-      "weight": 1,
-      "value": "知ってたか？100回以上もコメントがあると私が出るんだぜ。<<user>>さんは<<tc>>回もコメントしてるぜ。"
-     },
-     {
-      "weight": 2,
-      "value": "おいおい！<<user>>さん、もうけっこうコメントしてるぜ、<<tc>>回もだぜ！？"
-     }
-    ]
-   }
+    },
+    "places": {
+      "1730456801704-8lpzk": {
+        "id": "1730456801704-8lpzk",
+        "name": "WelcomeAgain01",
+        "description": "",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 9,
+            "value": "、久しぶり!また会えたね。"
+          },
+          {
+            "weight": 7,
+            "value": "、お久しぶりね!また会えたことを嬉しく思うわ。"
+          },
+          {
+            "weight": 5,
+            "value": "が久々に来たよ。挨拶しなきゃ!"
+          }
+        ]
+      },
+      "1730456953853-2kr1z": {
+        "id": "1730456953853-2kr1z",
+        "name": "WelcomeAgain02",
+        "description": "",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 7,
+            "value": "おっ、<<user>>さんだぜ。久しぶり!ゆっくりしていってね!"
+          },
+          {
+            "weight": 5,
+            "value": "<<user>>さん! また来てくれたんだぜ、会いたかったと配信者は嬉し涙だぜ。"
+          }
+        ]
+      },
+      "1731148195677-a91wm": {
+        "id": "1731148195677-a91wm",
+        "name": "WelcomeSyoken01",
+        "description": "",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "<<user>>さん、初めまして!ゆっくりしていってね。"
+          },
+          {
+            "weight": 1,
+            "value": "初見の<<user>>さん、コメントありがとう!とっても嬉しいわ!"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さん、来てくれてありがとう!何か聞きたいことがあれば、気軽にどうぞ!"
+          }
+        ]
+      },
+      "1731148223609-ya4xm": {
+        "id": "1731148223609-ya4xm",
+        "name": "WelcomeSyoken02",
+        "description": "",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "おっ、<<user>>さんが初めてのコメントだぜ!ようこそだぜ。"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さん、ようこそ!コメント助かるぜ～!"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さんいらっしゃいだぜ。あなたのコメントでこの配信も一段と盛り上がるぜ～"
+          }
+        ]
+      },
+      "1731149450144-4z43k": {
+        "id": "1731149450144-4z43k",
+        "name": "WelcomeHi01",
+        "description": "",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "<<user>>さん、こんにちは!ゆっくりしていってね。"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さん、また来てくれたね。ようこそ。"
+          }
+        ]
+      },
+      "1731149461424-arcth": {
+        "id": "1731149461424-arcth",
+        "name": "WelcomeHi02",
+        "description": "",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "おっ、<<user>>さんだ。これで<<tc>>回目のコメントだぜ"
+          },
+          {
+            "weight": 1,
+            "value": "今日もコメントありがとうだぜ、<<user>>さん。"
+          }
+        ]
+      },
+      "1731155882263-4ja9n": {
+        "id": "1731155882263-4ja9n",
+        "name": "WelcomeSagi011",
+        "description": "",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "<<user>>さん…あなた初見じゃないでしょ。"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さん、初めまし…あなた初見ではないわね?"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さん、初めまして…なんて言ってるけど、絶対どこかで会ってるわ。"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さん、どこかで見たような…なんていうか、運命を感じるわ。"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さん、前にも会った気がするんだけど、覚えてない？"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さん、「初見です」って言うのやめて、もう顔なじみよね。"
+          },
+          {
+            "weight": 1,
+            "value": "<<user>>さん、どこか見覚えがあるわ。以前にもお話したような気が…"
+          }
+        ]
+      },
+      "1731156154823-jl5w6": {
+        "id": "1731156154823-jl5w6",
+        "name": "WelcomeSagi02",
+        "description": "",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 3,
+            "value": "おい!<<user>>さん初見ちゃうやろ!<<tc>>回もコメントくれてるぜ!?"
+          },
+          {
+            "weight": 2,
+            "value": "<<user>>さん、まさか私を騙そうとしてるのか？私はあなたのことをよく知っているぜ。"
+          },
+          {
+            "weight": 1,
+            "value": "知ってたか？100回以上もコメントがあると私が出るんだぜ。<<user>>さんは<<tc>>回もコメントしてるぜ。"
+          },
+          {
+            "weight": 2,
+            "value": "おいおい！<<user>>さん、もうけっこうコメントしてるぜ、<<tc>>回もだぜ！？"
+          }
+        ]
+      }
+    }
   }
- }
 }

@@ -1,439 +1,439 @@
 {
- "id": "FortuneOmikuji",
- "name": "おみくじ",
- "description": "おみくじです。Microsoft Copilot に生成してもらいました。",
- "version": "0.0.1",
- "author": "Pintocuru",
- "order": 11,
- "tags": ["おみくじ"],
- "banner": "img/FortuneOmikuji.png",
- "item": {
-  "types": {
-   "comment": ["1737004538809-l0uyf"],
-   "timer": [],
-   "meta": [],
-   "waitingList": [],
-   "setList": [],
-   "reactions": [],
-   "unused": []
-  },
-  "rules": {
-   "1737004538809-l0uyf": {
-    "id": "1737004538809-l0uyf",
-    "name": "おみくじ",
-    "description": "おみくじ。Microsoft Copilot に生成してもらいました。",
-    "color": "#EF5350",
-    "enableIds": [
-     "1737004587154-e49pa",
-     "1737005570029-zu75p",
-     "1737005576336-xwr6c",
-     "1737005723813-esl50",
-     "1737005735661-vmhs4",
-     "1737005737628-n529j"
-    ],
-    "threshold": [
-     {
-      "conditionType": "match",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
-      },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["おみくじ", "omikuji", "omikuzi", "御神籤", "🥠"]
+  "id": "FortuneOmikuji",
+  "name": "おみくじ",
+  "description": "おみくじです。Microsoft Copilot に生成してもらいました。",
+  "version": "0.0.1",
+  "author": "Pintocuru",
+  "order": 11,
+  "tags": ["おみくじ"],
+  "banner": "img/FortuneOmikuji.png",
+  "item": {
+    "types": {
+      "comment": ["1737004538809-l0uyf"],
+      "timer": [],
+      "meta": [],
+      "waitingList": [],
+      "setList": [],
+      "reactions": [],
+      "unused": []
+    },
+    "rules": {
+      "1737004538809-l0uyf": {
+        "id": "1737004538809-l0uyf",
+        "name": "おみくじ",
+        "description": "おみくじ。Microsoft Copilot に生成してもらいました。",
+        "color": "#EF5350",
+        "enableIds": [
+          "1737004587154-e49pa",
+          "1737005570029-zu75p",
+          "1737005576336-xwr6c",
+          "1737005723813-esl50",
+          "1737005735661-vmhs4",
+          "1737005737628-n529j"
+        ],
+        "threshold": [
+          {
+            "conditionType": "match",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["おみくじ", "omikuji", "omikuzi", "御神籤", "🥠"]
+            }
+          }
+        ]
       }
-     }
-    ]
-   }
-  },
-  "omikujis": {
-   "1737004587154-e49pa": {
-    "id": "1737004587154-e49pa",
-    "name": "おみくじ:大吉",
-    "description": "大吉。",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "placeIds": ["1737005028871-ie02o"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": -1,
-      "party": "",
-      "content": "!omikuji_huru"
-     },
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "party": "",
-      "content": "!omikuji_01"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotPink",
-      "iconKey": "Default",
-      "delaySeconds": 1,
-      "party": "!レベルアップ",
-      "content": "<<user>>の運勢は【大吉】<<omikujiA>> "
-     }
-    ]
-   },
-   "1737005570029-zu75p": {
-    "id": "1737005570029-zu75p",
-    "name": "おみくじ:吉",
-    "description": "吉。",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "placeIds": ["1737005022219-orscp"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": -1,
-      "party": "",
-      "content": "!omikuji_huru"
-     },
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "party": "",
-      "content": "!omikuji_02"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotPink",
-      "iconKey": "Default",
-      "delaySeconds": 1,
-      "party": "!シャキーン2",
-      "content": "<<user>>の運勢は【吉】<<omikujiB>> "
-     }
-    ]
-   },
-   "1737005576336-xwr6c": {
-    "id": "1737005576336-xwr6c",
-    "name": "おみくじ:中吉",
-    "description": "中吉。",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "placeIds": ["1737004640649-tbb58"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": -1,
-      "party": "",
-      "content": "!omikuji_huru"
-     },
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "party": "",
-      "content": "!omikuji_03"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotPink",
-      "iconKey": "Default",
-      "delaySeconds": 1,
-      "party": "!シーン切り替え1",
-      "content": "<<user>>の運勢は【中吉】<<omikujiC>> "
-     }
-    ]
-   },
-   "1737005723813-esl50": {
-    "id": "1737005723813-esl50",
-    "name": "おみくじ:小吉",
-    "description": "小吉。",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "placeIds": ["1737005024101-1brq1"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": -1,
-      "party": "",
-      "content": "!omikuji_huru"
-     },
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "party": "",
-      "content": "!omikuji_04"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotPink",
-      "iconKey": "Default",
-      "delaySeconds": 1,
-      "party": "!シーン切り替え1",
-      "content": "<<user>>の運勢は【小吉】<<omikujiD>> "
-     }
-    ]
-   },
-   "1737005735661-vmhs4": {
-    "id": "1737005735661-vmhs4",
-    "name": "おみくじ:末吉",
-    "description": "末吉。",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "placeIds": ["1737005025863-0mghq"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": -1,
-      "party": "",
-      "content": "!omikuji_huru"
-     },
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "party": "",
-      "content": "!omikuji_05"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotPink",
-      "iconKey": "Default",
-      "delaySeconds": 1,
-      "party": "!間抜け1",
-      "content": "<<user>>の運勢は【末吉】<<omikujiE>> "
-     }
-    ]
-   },
-   "1737005737628-n529j": {
-    "id": "1737005737628-n529j",
-    "name": "おみくじ:凶",
-    "description": "凶。",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "placeIds": ["1737005027289-yvsgp"],
-    "post": [
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": -1,
-      "party": "",
-      "content": "!omikuji_huru"
-     },
-     {
-      "type": "party",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": 0,
-      "party": "",
-      "content": "!omikuji_06"
-     },
-     {
-      "type": "onecomme",
-      "botKey": "OmikenBotPink",
-      "iconKey": "Default",
-      "delaySeconds": 1,
-      "party": "!呪いの旋律",
-      "content": "<<user>>の運勢は【凶】<<omikujiF>> "
-     }
-    ]
-   }
-  },
-  "places": {
-   "1737004640649-tbb58": {
-    "id": "1737004640649-tbb58",
-    "name": "omikujiC",
-    "description": "中吉。",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "安定した運勢です。現状維持を心がけましょう。"
-     },
-     {
-      "weight": 1,
-      "value": "人間関係に気を配り、トラブルを避けるように。"
-     },
-     {
-      "weight": 1,
-      "value": "体調管理を怠らず、リラックスする時間を持つこと。"
-     },
-     {
-      "weight": 1,
-      "value": "自分のスキルを磨くチャンスです。"
-     },
-     {
-      "weight": 1,
-      "value": "慎重に計画を立てて行動しましょう。"
-     }
-    ]
-   },
-   "1737005022219-orscp": {
-    "id": "1737005022219-orscp",
-    "name": "omikujiB",
-    "description": "吉。",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "良い運勢です。日常の小さな幸せに感謝しましょう。"
-     },
-     {
-      "weight": 1,
-      "value": "問題があっても冷静に対処すれば解決できます。"
-     },
-     {
-      "weight": 1,
-      "value": "友人や家族との時間を大切にしてください。"
-     },
-     {
-      "weight": 1,
-      "value": "睡眠と栄養を十分に取ることが大切です。"
-     },
-     {
-      "weight": 1,
-      "value": "仕事や勉強に集中して成果を出しましょう。"
-     }
-    ]
-   },
-   "1737005024101-1brq1": {
-    "id": "1737005024101-1brq1",
-    "name": "omikujiD",
-    "description": "小吉。",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "小さな幸運があります。感謝の気持ちを忘れずに。"
-     },
-     {
-      "weight": 1,
-      "value": "周りの人との協力が大切です。"
-     },
-     {
-      "weight": 1,
-      "value": "無理せず、休息を取ることが必要です。"
-     },
-     {
-      "weight": 1,
-      "value": "自分のペースで物事を進めましょう。"
-     },
-     {
-      "weight": 1,
-      "value": "健康に気をつけ、適度な運動を心がけてください。"
-     }
-    ]
-   },
-   "1737005025863-0mghq": {
-    "id": "1737005025863-0mghq",
-    "name": "omikujiE",
-    "description": "末吉。",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "これから運気が上昇します。焦らずに進んでください。"
-     },
-     {
-      "weight": 1,
-      "value": "小さな成功を積み重ねていくことが大切です。"
-     },
-     {
-      "weight": 1,
-      "value": "周りの人のサポートを受け入れましょう。"
-     },
-     {
-      "weight": 1,
-      "value": "体調に気を配り、無理をしないように。"
-     },
-     {
-      "weight": 1,
-      "value": "ポジティブな考え方を持つことが大切です。"
-     }
-    ]
-   },
-   "1737005027289-yvsgp": {
-    "id": "1737005027289-yvsgp",
-    "name": "omikujiF",
-    "description": "凶。",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "注意が必要な日です。無理をせず、慎重に行動しましょう。"
-     },
-     {
-      "weight": 1,
-      "value": "問題があっても冷静に対応し、解決策を見つけましょう。"
-     },
-     {
-      "weight": 1,
-      "value": "休息をしっかりとり、体調管理を心がけてください。"
-     },
-     {
-      "weight": 1,
-      "value": "周りの人と協力して困難を乗り越えましょう。"
-     },
-     {
-      "weight": 1,
-      "value": "ポジティブな気持ちを持ち続けることが大切です。"
-     }
-    ]
-   },
-   "1737005028871-ie02o": {
-    "id": "1737005028871-ie02o",
-    "name": "omikujiA",
-    "description": "大吉。",
-    "placeIds": [],
-    "values": [
-     {
-      "weight": 1,
-      "value": "今日の運勢は最高です！目標に向かって大胆に進みましょう。"
-     },
-     {
-      "weight": 1,
-      "value": "チャンスが訪れます。逃さずに掴んでください。"
-     },
-     {
-      "weight": 1,
-      "value": "周りの人に感謝の気持ちを忘れずに。"
-     },
-     {
-      "weight": 1,
-      "value": "健康運も好調です。新しい運動を始めてみては？"
-     },
-     {
-      "weight": 1,
-      "value": "積極的に新しいことに挑戦しましょう。"
-     }
-    ]
-   }
+    },
+    "omikujis": {
+      "1737004587154-e49pa": {
+        "id": "1737004587154-e49pa",
+        "name": "おみくじ:大吉",
+        "description": "大吉。",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "placeIds": ["1737005028871-ie02o"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": -1,
+            "party": "",
+            "content": "!omikuji_huru"
+          },
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "party": "",
+            "content": "!omikuji_01"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotPink",
+            "iconKey": "Default",
+            "delaySeconds": 1,
+            "party": "!レベルアップ",
+            "content": "<<user>>の運勢は【大吉】<<omikujiA>> "
+          }
+        ]
+      },
+      "1737005570029-zu75p": {
+        "id": "1737005570029-zu75p",
+        "name": "おみくじ:吉",
+        "description": "吉。",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "placeIds": ["1737005022219-orscp"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": -1,
+            "party": "",
+            "content": "!omikuji_huru"
+          },
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "party": "",
+            "content": "!omikuji_02"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotPink",
+            "iconKey": "Default",
+            "delaySeconds": 1,
+            "party": "!シャキーン2",
+            "content": "<<user>>の運勢は【吉】<<omikujiB>> "
+          }
+        ]
+      },
+      "1737005576336-xwr6c": {
+        "id": "1737005576336-xwr6c",
+        "name": "おみくじ:中吉",
+        "description": "中吉。",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "placeIds": ["1737004640649-tbb58"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": -1,
+            "party": "",
+            "content": "!omikuji_huru"
+          },
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "party": "",
+            "content": "!omikuji_03"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotPink",
+            "iconKey": "Default",
+            "delaySeconds": 1,
+            "party": "!シーン切り替え1",
+            "content": "<<user>>の運勢は【中吉】<<omikujiC>> "
+          }
+        ]
+      },
+      "1737005723813-esl50": {
+        "id": "1737005723813-esl50",
+        "name": "おみくじ:小吉",
+        "description": "小吉。",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "placeIds": ["1737005024101-1brq1"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": -1,
+            "party": "",
+            "content": "!omikuji_huru"
+          },
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "party": "",
+            "content": "!omikuji_04"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotPink",
+            "iconKey": "Default",
+            "delaySeconds": 1,
+            "party": "!シーン切り替え1",
+            "content": "<<user>>の運勢は【小吉】<<omikujiD>> "
+          }
+        ]
+      },
+      "1737005735661-vmhs4": {
+        "id": "1737005735661-vmhs4",
+        "name": "おみくじ:末吉",
+        "description": "末吉。",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "placeIds": ["1737005025863-0mghq"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": -1,
+            "party": "",
+            "content": "!omikuji_huru"
+          },
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "party": "",
+            "content": "!omikuji_05"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotPink",
+            "iconKey": "Default",
+            "delaySeconds": 1,
+            "party": "!間抜け1",
+            "content": "<<user>>の運勢は【末吉】<<omikujiE>> "
+          }
+        ]
+      },
+      "1737005737628-n529j": {
+        "id": "1737005737628-n529j",
+        "name": "おみくじ:凶",
+        "description": "凶。",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "placeIds": ["1737005027289-yvsgp"],
+        "post": [
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": -1,
+            "party": "",
+            "content": "!omikuji_huru"
+          },
+          {
+            "type": "party",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": 0,
+            "party": "",
+            "content": "!omikuji_06"
+          },
+          {
+            "type": "onecomme",
+            "botKey": "OmikenBotPink",
+            "iconKey": "Default",
+            "delaySeconds": 1,
+            "party": "!呪いの旋律",
+            "content": "<<user>>の運勢は【凶】<<omikujiF>> "
+          }
+        ]
+      }
+    },
+    "places": {
+      "1737004640649-tbb58": {
+        "id": "1737004640649-tbb58",
+        "name": "omikujiC",
+        "description": "中吉。",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "安定した運勢です。現状維持を心がけましょう。"
+          },
+          {
+            "weight": 1,
+            "value": "人間関係に気を配り、トラブルを避けるように。"
+          },
+          {
+            "weight": 1,
+            "value": "体調管理を怠らず、リラックスする時間を持つこと。"
+          },
+          {
+            "weight": 1,
+            "value": "自分のスキルを磨くチャンスです。"
+          },
+          {
+            "weight": 1,
+            "value": "慎重に計画を立てて行動しましょう。"
+          }
+        ]
+      },
+      "1737005022219-orscp": {
+        "id": "1737005022219-orscp",
+        "name": "omikujiB",
+        "description": "吉。",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "良い運勢です。日常の小さな幸せに感謝しましょう。"
+          },
+          {
+            "weight": 1,
+            "value": "問題があっても冷静に対処すれば解決できます。"
+          },
+          {
+            "weight": 1,
+            "value": "友人や家族との時間を大切にしてください。"
+          },
+          {
+            "weight": 1,
+            "value": "睡眠と栄養を十分に取ることが大切です。"
+          },
+          {
+            "weight": 1,
+            "value": "仕事や勉強に集中して成果を出しましょう。"
+          }
+        ]
+      },
+      "1737005024101-1brq1": {
+        "id": "1737005024101-1brq1",
+        "name": "omikujiD",
+        "description": "小吉。",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "小さな幸運があります。感謝の気持ちを忘れずに。"
+          },
+          {
+            "weight": 1,
+            "value": "周りの人との協力が大切です。"
+          },
+          {
+            "weight": 1,
+            "value": "無理せず、休息を取ることが必要です。"
+          },
+          {
+            "weight": 1,
+            "value": "自分のペースで物事を進めましょう。"
+          },
+          {
+            "weight": 1,
+            "value": "健康に気をつけ、適度な運動を心がけてください。"
+          }
+        ]
+      },
+      "1737005025863-0mghq": {
+        "id": "1737005025863-0mghq",
+        "name": "omikujiE",
+        "description": "末吉。",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "これから運気が上昇します。焦らずに進んでください。"
+          },
+          {
+            "weight": 1,
+            "value": "小さな成功を積み重ねていくことが大切です。"
+          },
+          {
+            "weight": 1,
+            "value": "周りの人のサポートを受け入れましょう。"
+          },
+          {
+            "weight": 1,
+            "value": "体調に気を配り、無理をしないように。"
+          },
+          {
+            "weight": 1,
+            "value": "ポジティブな考え方を持つことが大切です。"
+          }
+        ]
+      },
+      "1737005027289-yvsgp": {
+        "id": "1737005027289-yvsgp",
+        "name": "omikujiF",
+        "description": "凶。",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "注意が必要な日です。無理をせず、慎重に行動しましょう。"
+          },
+          {
+            "weight": 1,
+            "value": "問題があっても冷静に対応し、解決策を見つけましょう。"
+          },
+          {
+            "weight": 1,
+            "value": "休息をしっかりとり、体調管理を心がけてください。"
+          },
+          {
+            "weight": 1,
+            "value": "周りの人と協力して困難を乗り越えましょう。"
+          },
+          {
+            "weight": 1,
+            "value": "ポジティブな気持ちを持ち続けることが大切です。"
+          }
+        ]
+      },
+      "1737005028871-ie02o": {
+        "id": "1737005028871-ie02o",
+        "name": "omikujiA",
+        "description": "大吉。",
+        "placeIds": [],
+        "values": [
+          {
+            "weight": 1,
+            "value": "今日の運勢は最高です！目標に向かって大胆に進みましょう。"
+          },
+          {
+            "weight": 1,
+            "value": "チャンスが訪れます。逃さずに掴んでください。"
+          },
+          {
+            "weight": 1,
+            "value": "周りの人に感謝の気持ちを忘れずに。"
+          },
+          {
+            "weight": 1,
+            "value": "健康運も好調です。新しい運動を始めてみては？"
+          },
+          {
+            "weight": 1,
+            "value": "積極的に新しいことに挑戦しましょう。"
+          }
+        ]
+      }
+    }
   }
- }
 }

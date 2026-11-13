@@ -1,437 +1,437 @@
 {
- "id": "MeiJin",
- "name": "名人 Mei-Jin",
- "description": "Fallguysの「ピクセル名人」から発想を得たおみくじ",
- "version": "0.0.1",
- "author": "Pintocuru",
- "order": 10001,
- "tags": ["おみくじ", "Fallguys"],
- "banner": "",
- "item": {
-  "types": {
-   "comment": ["1736665695501-pi58l"],
-   "timer": [],
-   "meta": [],
-   "waitingList": [],
-   "setList": [],
-   "reactions": [],
-   "unused": []
-  },
-  "rules": {
-   "1736665695501-pi58l": {
-    "id": "1736665695501-pi58l",
-    "name": "名人 Mei-Jin",
-    "description": "あなたは何の名人だぜ?",
-    "color": "#FFF176",
-    "enableIds": ["1736666037723-zpwuo"],
-    "threshold": [
-     {
-      "conditionType": "match",
-      "coolDown": 3,
-      "syoken": 1,
-      "access": 2,
-      "gift": 0,
-      "count": {
-       "comparison": "max",
-       "unit": "draws",
-       "value1": 0,
-       "value2": 1
-      },
-      "match": {
-       "target": "comment",
-       "case": "starts",
-       "value": ["名人", "めいじん", "meijin"]
+  "id": "MeiJin",
+  "name": "名人 Mei-Jin",
+  "description": "Fallguysの「ピクセル名人」から発想を得たおみくじ",
+  "version": "0.0.1",
+  "author": "Pintocuru",
+  "order": 10001,
+  "tags": ["おみくじ", "Fallguys"],
+  "banner": "",
+  "item": {
+    "types": {
+      "comment": ["1736665695501-pi58l"],
+      "timer": [],
+      "meta": [],
+      "waitingList": [],
+      "setList": [],
+      "reactions": [],
+      "unused": []
+    },
+    "rules": {
+      "1736665695501-pi58l": {
+        "id": "1736665695501-pi58l",
+        "name": "名人 Mei-Jin",
+        "description": "あなたは何の名人だぜ?",
+        "color": "#FFF176",
+        "enableIds": ["1736666037723-zpwuo"],
+        "threshold": [
+          {
+            "conditionType": "match",
+            "coolDown": 3,
+            "syoken": 1,
+            "access": 2,
+            "gift": 0,
+            "count": {
+              "comparison": "max",
+              "unit": "draws",
+              "value1": 0,
+              "value2": 1
+            },
+            "match": {
+              "target": "comment",
+              "case": "starts",
+              "value": ["名人", "めいじん", "meijin"]
+            }
+          }
+        ]
       }
-     }
-    ]
-   }
-  },
-  "omikujis": {
-   "1736666037723-zpwuo": {
-    "id": "1736666037723-zpwuo",
-    "name": "名人 Mey-Jin",
-    "description": "",
-    "rank": 0,
-    "weight": 1,
-    "threshold": [],
-    "placeIds": ["1736666081071-t7mxi"],
-    "post": [
-     {
-      "type": "onecomme",
-      "botKey": "marisa",
-      "iconKey": "Default",
-      "delaySeconds": 1,
-      "content": "<<user>>は<<MeyJin>>名人だぜ",
-      "party": "!シーン切り替え1"
-     }
-    ]
-   }
-  },
-  "places": {
-   "1736666081071-t7mxi": {
-    "id": "1736666081071-t7mxi",
-    "name": "MeyJin",
-    "description": "名人",
-    "placeIds": [],
-    "values": [
-     {
-      "value": "ピクセル",
-      "weight": 7
-     },
-     {
-      "value": "リリー・リーパー",
-      "weight": 1
-     },
-     {
-      "value": "大ファン",
-      "weight": 1
-     },
-     {
-      "value": "シーソー",
-      "weight": 1
-     },
-     {
-      "value": "しっぽ",
-      "weight": 1
-     },
-     {
-      "value": "しっぽオニ",
-      "weight": 1
-     },
-     {
-      "value": "フルーツ",
-      "weight": 1
-     },
-     {
-      "value": "バー避け",
-      "weight": 1
-     },
-     {
-      "value": "バージャンプ",
-      "weight": 1
-     },
-     {
-      "value": "障害物避け",
-      "weight": 1
-     },
-     {
-      "value": "サイ避け",
-      "weight": 1
-     },
-     {
-      "value": "雪玉避け",
-      "weight": 1
-     },
-     {
-      "value": "雪玉転がし",
-      "weight": 1
-     },
-     {
-      "value": "ためこみ",
-      "weight": 1
-     },
-     {
-      "value": "タマゴ",
-      "weight": 1
-     },
-     {
-      "value": "トランポリン",
-      "weight": 1
-     },
-     {
-      "value": "スラクラ",
-      "weight": 1
-     },
-     {
-      "value": "スラスク",
-      "weight": 1
-     },
-     {
-      "value": "グリーンヒルズ",
-      "weight": 1
-     },
-     {
-      "value": "六角",
-      "weight": 1
-     },
-     {
-      "value": "ハンマー",
-      "weight": 1
-     },
-     {
-      "value": "ペンギン",
-      "weight": 1
-     },
-     {
-      "value": "輪くぐり",
-      "weight": 1
-     },
-     {
-      "value": "スポットライト",
-      "weight": 1
-     },
-     {
-      "value": "ロールアウト",
-      "weight": 1
-     },
-     {
-      "value": "フォールボール",
-      "weight": 1
-     },
-     {
-      "value": "バスケット",
-      "weight": 1
-     },
-     {
-      "value": "バレー",
-      "weight": 1
-     },
-     {
-      "value": "パズル",
-      "weight": 1
-     },
-     {
-      "value": "パーフェクトマッチ",
-      "weight": 1
-     },
-     {
-      "value": "カウント",
-      "weight": 1
-     },
-     {
-      "value": "ドアダッシュ",
-      "weight": 1
-     },
-     {
-      "value": "ハチャメチャ",
-      "weight": 1
-     },
-     {
-      "value": "バッシャーズ",
-      "weight": 1
-     },
-     {
-      "value": "スキー",
-      "weight": 1
-     },
-     {
-      "value": "キャンディ",
-      "weight": 1
-     },
-     {
-      "value": "ブラスト",
-      "weight": 1
-     },
-     {
-      "value": "パンチング",
-      "weight": 1
-     },
-     {
-      "value": "エクストリーム",
-      "weight": 1
-     },
-     {
-      "value": "ファイナル",
-      "weight": 1
-     },
-     {
-      "value": "ダイブ",
-      "weight": 1
-     },
-     {
-      "value": "バウンド",
-      "weight": 1
-     },
-     {
-      "value": "腹滑り",
-      "weight": 1
-     },
-     {
-      "value": "転がり",
-      "weight": 1
-     },
-     {
-      "value": "ジャンプ",
-      "weight": 1
-     },
-     {
-      "value": "こっちだよ",
-      "weight": 1
-     },
-     {
-      "value": "エモート",
-      "weight": 1
-     },
-     {
-      "value": "おんぶ",
-      "weight": 1
-     },
-     {
-      "value": "崖捕まり",
-      "weight": 1
-     },
-     {
-      "value": "ヘルプ要請",
-      "weight": 1
-     },
-     {
-      "value": "掴み",
-      "weight": 1
-     },
-     {
-      "value": "掴み落とし",
-      "weight": 1
-     },
-     {
-      "value": "妨害",
-      "weight": 1
-     },
-     {
-      "value": "体当たり",
-      "weight": 1
-     },
-     {
-      "value": "クリエ",
-      "weight": 1
-     },
-     {
-      "value": "クリエイティブ",
-      "weight": 1
-     },
-     {
-      "value": "ステージ作成",
-      "weight": 1
-     },
-     {
-      "value": "ギミック",
-      "weight": 1
-     },
-     {
-      "value": "金装備",
-      "weight": 1
-     },
-     {
-      "value": "おしゃれ",
-      "weight": 1
-     },
-     {
-      "value": "スキン集め",
-      "weight": 1
-     },
-     {
-      "value": "王冠稼ぎ",
-      "weight": 1
-     },
-     {
-      "value": "名声稼ぎ",
-      "weight": 1
-     },
-     {
-      "value": "未踏の冒険",
-      "weight": 1
-     },
-     {
-      "value": "自由探索",
-      "weight": 1
-     },
-     {
-      "value": "チーム",
-      "weight": 1
-     },
-     {
-      "value": "レース",
-      "weight": 1
-     },
-     {
-      "value": "コース",
-      "weight": 1
-     },
-     {
-      "value": "サバイバル",
-      "weight": 1
-     },
-     {
-      "value": "ポイント",
-      "weight": 1
-     },
-     {
-      "value": "ノックアウト",
-      "weight": 1
-     },
-     {
-      "value": "ソロ",
-      "weight": 1
-     },
-     {
-      "value": "デュオ",
-      "weight": 1
-     },
-     {
-      "value": "スクワッド",
-      "weight": 1
-     },
-     {
-      "value": "サブショー",
-      "weight": 1
-     },
-     {
-      "value": "エラー落ち",
-      "weight": 1
-     },
-     {
-      "value": "周回遅れ",
-      "weight": 1
-     },
-     {
-      "value": "飛び込み",
-      "weight": 1
-     },
-     {
-      "value": "スライム遊泳",
-      "weight": 1
-     },
-     {
-      "value": "落下",
-      "weight": 1
-     },
-     {
-      "value": "掴み落とされ",
-      "weight": 1
-     },
-     {
-      "value": "グリッジ",
-      "weight": 1
-     },
-     {
-      "value": "煽り",
-      "weight": 1
-     },
-     {
-      "value": "ゴール前エモート",
-      "weight": 1
-     },
-     {
-      "value": "ELIMINATED",
-      "weight": 1
-     },
-     {
-      "value": "高橋",
-      "weight": 1
-     },
-     {
-      "value": "ネクステの",
-      "weight": 1
-     },
-     {
-      "value": "藤井竜王",
-      "weight": 1
-     },
-     {
-      "value": "ピクロス",
-      "weight": 3
-     }
-    ]
-   }
+    },
+    "omikujis": {
+      "1736666037723-zpwuo": {
+        "id": "1736666037723-zpwuo",
+        "name": "名人 Mey-Jin",
+        "description": "",
+        "rank": 0,
+        "weight": 1,
+        "threshold": [],
+        "placeIds": ["1736666081071-t7mxi"],
+        "post": [
+          {
+            "type": "onecomme",
+            "botKey": "marisa",
+            "iconKey": "Default",
+            "delaySeconds": 1,
+            "content": "<<user>>は<<MeyJin>>名人だぜ",
+            "party": "!シーン切り替え1"
+          }
+        ]
+      }
+    },
+    "places": {
+      "1736666081071-t7mxi": {
+        "id": "1736666081071-t7mxi",
+        "name": "MeyJin",
+        "description": "名人",
+        "placeIds": [],
+        "values": [
+          {
+            "value": "ピクセル",
+            "weight": 7
+          },
+          {
+            "value": "リリー・リーパー",
+            "weight": 1
+          },
+          {
+            "value": "大ファン",
+            "weight": 1
+          },
+          {
+            "value": "シーソー",
+            "weight": 1
+          },
+          {
+            "value": "しっぽ",
+            "weight": 1
+          },
+          {
+            "value": "しっぽオニ",
+            "weight": 1
+          },
+          {
+            "value": "フルーツ",
+            "weight": 1
+          },
+          {
+            "value": "バー避け",
+            "weight": 1
+          },
+          {
+            "value": "バージャンプ",
+            "weight": 1
+          },
+          {
+            "value": "障害物避け",
+            "weight": 1
+          },
+          {
+            "value": "サイ避け",
+            "weight": 1
+          },
+          {
+            "value": "雪玉避け",
+            "weight": 1
+          },
+          {
+            "value": "雪玉転がし",
+            "weight": 1
+          },
+          {
+            "value": "ためこみ",
+            "weight": 1
+          },
+          {
+            "value": "タマゴ",
+            "weight": 1
+          },
+          {
+            "value": "トランポリン",
+            "weight": 1
+          },
+          {
+            "value": "スラクラ",
+            "weight": 1
+          },
+          {
+            "value": "スラスク",
+            "weight": 1
+          },
+          {
+            "value": "グリーンヒルズ",
+            "weight": 1
+          },
+          {
+            "value": "六角",
+            "weight": 1
+          },
+          {
+            "value": "ハンマー",
+            "weight": 1
+          },
+          {
+            "value": "ペンギン",
+            "weight": 1
+          },
+          {
+            "value": "輪くぐり",
+            "weight": 1
+          },
+          {
+            "value": "スポットライト",
+            "weight": 1
+          },
+          {
+            "value": "ロールアウト",
+            "weight": 1
+          },
+          {
+            "value": "フォールボール",
+            "weight": 1
+          },
+          {
+            "value": "バスケット",
+            "weight": 1
+          },
+          {
+            "value": "バレー",
+            "weight": 1
+          },
+          {
+            "value": "パズル",
+            "weight": 1
+          },
+          {
+            "value": "パーフェクトマッチ",
+            "weight": 1
+          },
+          {
+            "value": "カウント",
+            "weight": 1
+          },
+          {
+            "value": "ドアダッシュ",
+            "weight": 1
+          },
+          {
+            "value": "ハチャメチャ",
+            "weight": 1
+          },
+          {
+            "value": "バッシャーズ",
+            "weight": 1
+          },
+          {
+            "value": "スキー",
+            "weight": 1
+          },
+          {
+            "value": "キャンディ",
+            "weight": 1
+          },
+          {
+            "value": "ブラスト",
+            "weight": 1
+          },
+          {
+            "value": "パンチング",
+            "weight": 1
+          },
+          {
+            "value": "エクストリーム",
+            "weight": 1
+          },
+          {
+            "value": "ファイナル",
+            "weight": 1
+          },
+          {
+            "value": "ダイブ",
+            "weight": 1
+          },
+          {
+            "value": "バウンド",
+            "weight": 1
+          },
+          {
+            "value": "腹滑り",
+            "weight": 1
+          },
+          {
+            "value": "転がり",
+            "weight": 1
+          },
+          {
+            "value": "ジャンプ",
+            "weight": 1
+          },
+          {
+            "value": "こっちだよ",
+            "weight": 1
+          },
+          {
+            "value": "エモート",
+            "weight": 1
+          },
+          {
+            "value": "おんぶ",
+            "weight": 1
+          },
+          {
+            "value": "崖捕まり",
+            "weight": 1
+          },
+          {
+            "value": "ヘルプ要請",
+            "weight": 1
+          },
+          {
+            "value": "掴み",
+            "weight": 1
+          },
+          {
+            "value": "掴み落とし",
+            "weight": 1
+          },
+          {
+            "value": "妨害",
+            "weight": 1
+          },
+          {
+            "value": "体当たり",
+            "weight": 1
+          },
+          {
+            "value": "クリエ",
+            "weight": 1
+          },
+          {
+            "value": "クリエイティブ",
+            "weight": 1
+          },
+          {
+            "value": "ステージ作成",
+            "weight": 1
+          },
+          {
+            "value": "ギミック",
+            "weight": 1
+          },
+          {
+            "value": "金装備",
+            "weight": 1
+          },
+          {
+            "value": "おしゃれ",
+            "weight": 1
+          },
+          {
+            "value": "スキン集め",
+            "weight": 1
+          },
+          {
+            "value": "王冠稼ぎ",
+            "weight": 1
+          },
+          {
+            "value": "名声稼ぎ",
+            "weight": 1
+          },
+          {
+            "value": "未踏の冒険",
+            "weight": 1
+          },
+          {
+            "value": "自由探索",
+            "weight": 1
+          },
+          {
+            "value": "チーム",
+            "weight": 1
+          },
+          {
+            "value": "レース",
+            "weight": 1
+          },
+          {
+            "value": "コース",
+            "weight": 1
+          },
+          {
+            "value": "サバイバル",
+            "weight": 1
+          },
+          {
+            "value": "ポイント",
+            "weight": 1
+          },
+          {
+            "value": "ノックアウト",
+            "weight": 1
+          },
+          {
+            "value": "ソロ",
+            "weight": 1
+          },
+          {
+            "value": "デュオ",
+            "weight": 1
+          },
+          {
+            "value": "スクワッド",
+            "weight": 1
+          },
+          {
+            "value": "サブショー",
+            "weight": 1
+          },
+          {
+            "value": "エラー落ち",
+            "weight": 1
+          },
+          {
+            "value": "周回遅れ",
+            "weight": 1
+          },
+          {
+            "value": "飛び込み",
+            "weight": 1
+          },
+          {
+            "value": "スライム遊泳",
+            "weight": 1
+          },
+          {
+            "value": "落下",
+            "weight": 1
+          },
+          {
+            "value": "掴み落とされ",
+            "weight": 1
+          },
+          {
+            "value": "グリッジ",
+            "weight": 1
+          },
+          {
+            "value": "煽り",
+            "weight": 1
+          },
+          {
+            "value": "ゴール前エモート",
+            "weight": 1
+          },
+          {
+            "value": "ELIMINATED",
+            "weight": 1
+          },
+          {
+            "value": "高橋",
+            "weight": 1
+          },
+          {
+            "value": "ネクステの",
+            "weight": 1
+          },
+          {
+            "value": "藤井竜王",
+            "weight": 1
+          },
+          {
+            "value": "ピクロス",
+            "weight": 3
+          }
+        ]
+      }
+    }
   }
- }
 }
