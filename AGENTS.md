@@ -85,3 +85,14 @@
 
 ## 追加の未解決レビュー事項
 - `PostMessage.post()` は `Promise.all` で投稿を並行実行する一方、コメントには「順次処理を保証」とある。delaySecondsを使った同時投稿制御の意図を確認する必要があり、現時点では変更しない。
+
+
+## 未使用ファイルの確認・整理（2026-11-13）
+- src配下のTypeScript/JavaScriptファイル32件のimport関係を静的に確認。`OmikujiSelectorComment.ts` と `OmikujiSelectorTimer.ts` は他ファイルから参照されず、どちらもimport文だけでクラス等の実装・exportがない空の残骸だった。実際のセレクター実装は `OmikujiSelector.ts` に存在するため、作業ブランチから2ファイルを削除。
+- Scripts配下は InitDataLoader がディレクトリから動的requireするため、静的importがないことを理由に未使用とは判定しない。
+- そのほかの未使用候補は引き続き動的参照・外部利用を確認してから判断する。
+
+## 進捗更新
+- [x] src配下のimport関係を静的確認
+- [x] 実装のない未参照selector stub 2件を削除
+- [ ] 実機・ローカルでの動作確認
