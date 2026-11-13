@@ -146,3 +146,7 @@
 ## システム通知送信の失敗処理（2026-11-13）
 - `src/Modules/core/ErrorHandler.ts`: `postSystemMessage()` がHTTPエラー等でrejectした際、呼び出し側でcatchされず未処理Promise rejectionになる経路を修正。送信失敗はconsole.errorへ記録し、元の通知処理へ再帰しない。
 - `systemMessage()`自体は同期関数のまま維持。通知送信の失敗で本来のエラー処理を中断しない。
+
+## システム通知送信の失敗処理（2026-11-13）
+- `src/Modules/core/ErrorHandler.ts`: `postSystemMessage()` がHTTPエラー等でrejectした際、呼び出し側でcatchされず未処理Promise rejectionになる経路を修正。送信失敗はconsole.errorへ記録し、元の通知処理へ再帰しない。
+- `systemMessage()`自体は同期関数のまま維持。通知送信の失敗で本来のエラー処理を中断しない。
