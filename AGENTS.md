@@ -115,3 +115,11 @@
 - `src/plugin.ts`の`destroy()`から`timerSelector.destroy()`が呼ばれ、参照も`undefined`に戻されることを確認。`OmikujiSelectorTimer.destroy()`は初回timeoutとintervalの両方を解除するため、現行タイマーの終了経路は接続されている。
 - `startReadyCheck()`はサービス取得成功まで無期限に待機する。サービスが起動しない／APIが恒久的に利用できない場合に`init()`が完了しない可能性があるが、待機仕様（わんコメ起動待ち）との兼ね合いがあるため現時点では変更しない。タイムアウト値や再試行終了条件は未確認。
 - `src/test/OmikujiSelectorTimer.test.ts`を確認。destroy前の初回timeout解除を検証するテストが存在する。Jestは未実行。
+
+
+## 投稿処理の順序・遅延仕様の確認（2026-11-13）
+- `src/Modules/api/PostMessage.ts`: `posts`はdelaySeconds順にソートされた配列を受け取り、各postの処理を`Promise.all`で同時に開始する。各投稿APIは呼び出し時点から`delaySeconds + basicDelaySeconds`だけ個別にsetTimeout待機する。
+- そのため実際の挙動は「順次処理」ではなく、各投稿のdelaySecondsを共通の開始時刻から数える並行スケジュール。単純なfor-awaitへ変更するとdelaySecondsが累積し、投稿タイミングを変えてしまう可能性がある。
+- コードコメント「順次処理を保証」は実装と不一致。現時点ではdelaySecondsの共通起点スケジュールが意図された仕様か未確認のため、実装は変更しない。コメント修正も仕様確認後に行う。
+- `OmikujiSelector.ts`: `setupTimers`は0〜60分のうち1〜60分のみ受け付ける。schema側timerConfig.minutesはnonnegativeで0を許可するが、0分設定はselectorでスキップされる。UI入力制約と一致するか未確認。
+- `InitDataLoader.ts`: `readJsonFile`はJSON parse失敗時にエラー通知後nullを返し、呼び出し元はそのファイルを読み込み結果から除外する。プリセット等の個別ファイルをスキップする意図か、全体ロードを失敗させるべきかは未確認。
