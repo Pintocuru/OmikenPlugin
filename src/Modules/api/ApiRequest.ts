@@ -89,10 +89,13 @@ export class RequestHandler {
 
  // おみくじデータの更新
  private async updateOmikenData(newOmiken: OmikenType): Promise<void> {
+  // 派生データの生成に失敗した場合、永続データを先に上書きしない
+  const OmikenTypesArray = filterTypes(newOmiken.types, newOmiken.rules);
+
   this.responseMap.store.set('Omiken', newOmiken);
   Object.assign(this.responseMap, {
    Omiken: newOmiken,
-   OmikenTypesArray: filterTypes(newOmiken.types, newOmiken.rules)
+   OmikenTypesArray
   });
  }
 
