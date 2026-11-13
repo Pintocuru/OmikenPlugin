@@ -20,13 +20,16 @@ export class PlaceProcess {
    if (visited.has(placeId)) return;
    visited.add(placeId);
 
+   if (!Object.prototype.hasOwnProperty.call(places, placeId)) return;
    const place = places[placeId];
-   if (place?.values.length) {
+   if (!place) return;
+
+   if (place.values.length > 0) {
     const value = new PlayOmikuji(place.values).draw() as PlaceValueType;
     if (value) this.updatePlace({ [place.name]: value.value });
-
-    place.placeIds.forEach((childId) => processPlace(childId, visited));
    }
+
+   place.placeIds.forEach((childId) => processPlace(childId, visited));
   };
 
   this.selectOmikuji.placeIds.forEach((id) => processPlace(id));
