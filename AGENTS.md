@@ -61,3 +61,16 @@
 ## 進捗更新
 - [x] package scripts・主要ビルド設定・テスト配置の静的照合
 - [ ] ローカル実行環境でのビルド／テスト実行（GitHub上のファイル参照のみでは実行結果を確認できない）
+
+
+## 修正（2026-11-13）
+- `src/Modules/tasks/OmikujiSelector.ts`: 初回待機用 setTimeout のハンドルを保持し、clearAllTimers/destroy で clearTimeout するよう修正。待機中にプラグインが終了した後、タイマーが再起動する問題を防ぐ。
+- `src/test/OmikujiSelectorTimer.test.ts`: 初回interval開始前に destroy した場合、コールバックが実行されずタイマーが残らないことを確認するテストを追加。
+- `package.json`: test:plugin の対象を実際の配置 src/test に合わせて修正。
+- いずれも GitHub 上でソースを更新した段階。ローカルでの Jest 実行・ビルド検証は未実施。
+
+## 進捗更新
+- [x] 初回待機中のタイマー破棄処理を修正
+- [x] タイマー破棄テストを追加
+- [x] Jest実行対象パスを修正
+- [ ] Jest・ビルド実行による検証
