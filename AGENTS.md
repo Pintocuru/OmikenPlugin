@@ -146,3 +146,8 @@
 ## システム通知送信の失敗処理（2026-11-13）
 - `src/Modules/core/ErrorHandler.ts`: `postSystemMessage()` がHTTPエラー等でrejectした際、呼び出し側でcatchされず未処理Promise rejectionになる経路を修正。送信失敗はconsole.errorへ記録し、元の通知処理へ再帰しない。
 - `systemMessage()`自体は同期関数のまま維持。通知送信の失敗で本来のエラー処理を中断しない。
+
+
+## 追加レビュー・修正（2026-11-13）
+- `src/Modules/api/serviceAPI.ts`: 枠作成時のカラーコード検証が文字数のみだったため、6桁の16進数以外（例: `GG0000`）でもparseIntがNaNを返し、そのままRGB値に入る経路があった。正規表現で6桁の16進数を検証するよう修正。
+- `#RRGGBB` と `RRGGBB` の両形式は従来どおり受け付ける。大文字小文字も許可。実行時検証は未実施。
