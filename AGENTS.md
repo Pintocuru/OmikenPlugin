@@ -41,3 +41,10 @@
 
 ## 発見事項
 （調査結果を根拠・対象ファイルとともに追記する）
+
+## 初期レビュー記録（静的確認・未検証）
+- `src/Modules/tasks/OmikujiProcess.ts`: `convertInputParams` が `if (inputParams[param.id])` で値の有無を判定している。明示値 `false` / `0` / 空文字が変換対象から除外され、保存値・デフォルト値へフォールバックする可能性がある。スクリプト引数の仕様と照合して優先調査。
+- 同ファイル: `process()` が `postFinalMessages()` を await せず、`executeScript()` 内の `PostMessage.post()` も await していない。投稿失敗・完了順序・呼び出し元へのエラー伝播を調査。
+- `src/Modules/tasks/OmikujiSelector.ts`: タイマー初期化に `if (0 && immediateResult)` がある。初回即時実行を無効化する意図か、残存コードかを仕様・履歴と照合する。現時点で削除しない。
+- `src/Modules/core/InitDataLoader.ts`: JSON読込失敗時に `null` を返す一方、呼び出し側は `Record<string, T>` として扱う。壊れたJSON／ファイル欠損時の起動継続と利用側の安全性を確認。
+- 上記はソース上の懸念であり、実行再現・仕様確認前の確定バグとは扱わない。
