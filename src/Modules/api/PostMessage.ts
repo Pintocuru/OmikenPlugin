@@ -22,7 +22,7 @@ export class PostMessage {
    // 順次処理を保証
    await Promise.all(
     this.posts.map(async (post) => {
-     const chara = post.type === 'onecomme' ? this.charas[post.botKey] : undefined;
+     const chara = post.type === 'onecomme' ? this.charas?.[post.botKey] : undefined;
      await this.postFork(post, chara);
     })
    );
@@ -56,16 +56,16 @@ export class PostMessage {
   // メッセージタイプに応じた投稿処理
   const postActions: Record<string, () => Promise<void>> = {
    onecomme: async () => {
-    if (post.party) postWordParty(post.party, delaySeconds);
+    if (post.party) await postWordParty(post.party, delaySeconds);
 
     // キャラクター情報があり、枠情報が取得できるなら、わんコメへ投稿
     const DefaultFrameId = this.services[0]?.id || null;
     if (chara && DefaultFrameId) {
      const request = this.createCommentRequest(post, chara, DefaultFrameId);
-     sendComment(request, delaySeconds);
+     await sendComment(request, delaySeconds);
     } else {
      // キャラ情報がない、または枠情報がないなら、テストコメントで投稿
-     postSystemMessage(content, 'おみくじBOT', delaySeconds);
+     await postSystemMessage(content, 'おみくじBOT', delaySeconds);
     }
    },
    party: async () => postWordParty(content, delaySeconds),
