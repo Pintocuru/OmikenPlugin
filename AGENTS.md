@@ -96,3 +96,8 @@
 - [x] src配下のimport関係を静的確認
 - [x] 実装のない未参照selector stub 2件を削除
 - [ ] 実機・ローカルでの動作確認
+
+
+## タイマー実行エラーの処理（2026-11-13）
+- `src/Modules/core/InitDataLoader.ts`: timer callback内でOmikujiProcessor.process()のrejectをcatchし、systemMessageで通知するよう修正。タイマー起動経由では呼び出し元がPromiseを待たないため、未処理rejectionになる経路を抑止する。
+- この修正もローカル実行検証は未実施。
