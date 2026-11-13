@@ -157,7 +157,11 @@ export async function timerSetup(StoreAll: StoreAllType) {
   StoreAll.OmikenTypesArray.timer,
   StoreAll.Omiken.omikujis,
   async (result: OmikujiSelectType) => {
-   await new OmikujiProcessor(StoreAll, result).process();
+   try {
+    await new OmikujiProcessor(StoreAll, result).process();
+   } catch (error) {
+    systemMessage('error', 'タイマーのおみくじ処理に失敗しました', error);
+   }
   }
  );
 }
