@@ -100,39 +100,16 @@ export class RequestHandler {
   }
  }
 
- // アドオンにAPIを渡す
- private async handleAddonRequest(params: AddonModeParams, body: any): Promise<RequestResult> {
-  const game = params.ruleId ? this.responseMap.Games[params.ruleId] : null;
-  const script = this.responseMap.Scripts[params.scriptId];
+ // おみくじデータの更新
+ private async updateOmikenData(newOmiken: OmikenType): Promise<void> {
+  // 派生データの生成に失敗した場合、永続データを先に上書きしない
+  const OmikenTypesArray = filterTypes(newOmiken.types, newOmiken.rules);
 
-  if (!script || !script.ApiCall) {
-   return { response: this.createResponse(404, '指定された scriptId が見つかりません') };
-  }
-
-  try {
-   const result = await script.ApiCall(game, params.method, body);
-
-   // POST, PUT, DELETE メソッドの場合のみ responseMap を更新
-   if (['POST', 'PUT', 'DELETE'].includes(params.method) && result.status === 'success') {
-    // データの永続化（PluginStore への保存）
-    if (result.data && this.responseMap.store) {
-     // データが PluginStoreType に適合するか確認
-     const storeData = result.data as Partial<PluginStoreType>;
-     Object.entries(storeData).forEach(([key, value]) => {
-      if (key in this.responseMap.store) {
-       this.responseMap.store.set(key, value);
-      }
-     });
-    }
-   }
-
-   return {
-    response: this.createResponse(200, 'ファイルが正常に処理されました'),
-    data: result.data
-   };
-  } catch (e) {
-   return { response: this.createResponse(500, 'アドオン API 実行中にエラーが発生しました') };
-  }
+  this.responseMap.store.set('Omiken', newOmiken);
+  Object.assign(this.responseMap, {
+   Omiken: newOmiken,
+   OmikenTypesArray
+  });
  }
 
  // 共通レスポンスの生成

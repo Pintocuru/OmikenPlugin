@@ -64,7 +64,13 @@ export class InitDataLoader {
     const filePath = path.join(fullPath, file);
 
     try {
-     result[key] = extension === 'json' ? readJsonFile<T>(filePath) : require(filePath).default || require(filePath);
+     if (extension === 'json') {
+      const data = readJsonFile<T>(filePath);
+      if (data !== null) result[key] = data;
+     } else {
+      const loaded = require(filePath);
+      result[key] = loaded.default || loaded;
+     }
     } catch (e) {
      systemMessage('error', `ファイルの読み込みに失敗: ${filePath}`, e);
      throw new Error(`ファイルの読み込みに失敗: ${filePath}`);
@@ -128,7 +134,7 @@ function readJsonFile<T>(filePath: string): T | null {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const parsedData = JSON.parse(fileContent) as T;
 
-  if (!parsedData) {
+  if (parsedData === null) {
    systemMessage('error', `無効なデータ: ${filePath}`);
   }
 
@@ -142,7 +148,9 @@ function readJsonFile<T>(filePath: string): T | null {
 // rulesを配列にする
 export function filterTypes(types: Record<TypesType, string[]>, rules: Record<string, RulesType>) {
  return Object.keys(types).reduce((result, typeKey) => {
-  result[typeKey] = types[typeKey].map((id: string) => rules[id]).filter((rule) => rule !== undefined);
+  result[typeKey] = types[typeKey]
+   .filter((id: string) => Object.prototype.hasOwnProperty.call(rules, id))
+   .map((id: string) => rules[id]);
   return result;
  }, {} as Record<TypesType, RulesType[]>);
 }
@@ -157,7 +165,11 @@ export async function timerSetup(StoreAll: PluginAllType) {
   StoreAll.OmikenTypesArray.timer,
   StoreAll.Omiken.omikujis,
   async (result: OmikujiSelectType) => {
-   await new OmikujiProcessor(StoreAll, result).process();
+   try {
+    await new OmikujiProcessor(StoreAll, result).process();
+   } catch (error) {
+    systemMessage('error', 'タイマーのおみくじ処理に失敗しました', error);
+   }
   }
  );
 }

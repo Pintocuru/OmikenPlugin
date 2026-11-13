@@ -106,6 +106,7 @@ export class OmikujiSelectorComment extends OmikujiSelectorBase {
 
 export class OmikujiSelectorTimer extends OmikujiSelectorBase {
  private timers: NodeJS.Timeout[] = [];
+ private initialTimers: NodeJS.Timeout[] = [];
 
  constructor() {
   super();
@@ -164,7 +165,9 @@ export class OmikujiSelectorTimer extends OmikujiSelectorBase {
 
    const initialDelay = this.calculateNextInterval(minutes, isBaseZero);
 
-   setTimeout(() => {
+   const initialTimer = setTimeout(() => {
+    this.initialTimers = this.initialTimers.filter((timer) => timer !== initialTimer);
+
     const timer = setInterval(() => {
      const result = this.selectOmikujiForRule(rule, omikujis);
      if (result) callback(result);
@@ -175,6 +178,7 @@ export class OmikujiSelectorTimer extends OmikujiSelectorBase {
     const result = this.selectOmikujiForRule(rule, omikujis);
     if (result) callback(result);
    }, initialDelay);
+   this.initialTimers.push(initialTimer);
   });
  }
 
@@ -188,6 +192,8 @@ export class OmikujiSelectorTimer extends OmikujiSelectorBase {
 
  // タイマーをすべてクリア
  private clearAllTimers(): void {
+  this.initialTimers.forEach((timer) => clearTimeout(timer));
+  this.initialTimers = [];
   this.timers.forEach((timer) => clearInterval(timer));
   this.timers = [];
  }

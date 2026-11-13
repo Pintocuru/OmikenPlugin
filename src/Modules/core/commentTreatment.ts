@@ -23,7 +23,7 @@ const getIdParams = (str: string): SendCommentParamsType | false => {
 
  // パラメータを動的に処理
  params.forEach((value, key) => {
-  result[key] = decodeURIComponent(value);
+  result[key] = value;
  });
 
  return result.id ? result : false;

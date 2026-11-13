@@ -7,5 +7,7 @@ export function systemMessage(level: ErrorLevel, message: string, error?: unknow
  console[level](errorMessage);
 
  // メッセージをわんコメに送信
- postSystemMessage(message, level);
+ postSystemMessage(message, level).catch((sendError) => {
+  console.error('Failed to send system message:', sendError);
+ });
 }

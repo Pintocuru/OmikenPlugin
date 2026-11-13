@@ -10,7 +10,10 @@ export class PostMessage {
  private readonly serviceAPI: ServiceAPI;
  private services: Service[] = [];
 
- constructor(private posts: OneCommePostType[], private Charas?: Record<string, CharaType>) {
+ constructor(
+  private posts: OneCommePostType[],
+  private Charas?: Record<string, CharaType>
+ ) {
   this.serviceAPI = new ServiceAPI();
  }
 
@@ -19,10 +22,10 @@ export class PostMessage {
    // 枠情報の取得
    this.services = await this.serviceAPI.getServices();
 
-   // 順次処理を保証
+   // 各投稿を開始時刻基準のdelaySecondsで並行スケジュールし、完了を待つ
    await Promise.all(
     this.posts.map(async (post) => {
-     const chara = post.type === 'onecomme' && post.botKey !== undefined ? this.Charas?.[post.botKey] : undefined;
+     const chara = post.type === 'onecomme' ? this.charas?.[post.botKey] : undefined;
      await this.postFork(post, chara);
     })
    );
@@ -56,16 +59,16 @@ export class PostMessage {
   // メッセージタイプに応じた投稿処理
   const postActions: Record<string, () => Promise<void>> = {
    onecomme: async () => {
-    if (post.party) postWordParty(post.party, delaySeconds);
+    if (post.party) await postWordParty(post.party, delaySeconds);
 
     // キャラクター情報があり、枠情報が取得できるなら、わんコメへ投稿
     const DefaultFrameId = this.services[0]?.id || null;
     if (chara && DefaultFrameId) {
      const request = this.createCommentRequest(post, chara, DefaultFrameId);
-     sendComment(request, delaySeconds);
+     await sendComment(request, delaySeconds);
     } else {
      // キャラ情報がない、または枠情報がないなら、テストコメントで投稿
-     postSystemMessage(content, SETTINGS.BOT_DEFAULT_NAME, delaySeconds);
+     await postSystemMessage(content, 'おみくじBOT', delaySeconds);
     }
    },
    party: async () => postWordParty(content, delaySeconds),

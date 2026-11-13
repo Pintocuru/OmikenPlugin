@@ -89,7 +89,9 @@ export class OmikujiProcessor {
   this.updateDrawsStatus();
   await this.executeScript();
   this.processPlaceData();
-  this.postFinalMessages();
+  void this.postFinalMessages().catch((error) => {
+   systemMessage('error', 'おみくじの投稿に失敗しました', error);
+  });
   this.storeChanges();
   return this.pluginsUpdate();
  }
@@ -129,7 +131,9 @@ export class OmikujiProcessor {
 
    // postArrayがあるなら、わんコメに投稿
    if (scriptResult.postArray?.length > 0) {
-    new PostMessage(scriptResult.postArray, this.storeAll.Charas).post();
+    void new PostMessage(scriptResult.postArray, this.storeAll.Charas).post().catch((error) => {
+     systemMessage('error', '外部スクリプトからの投稿に失敗しました', error);
+    });
    }
 
    // game情報を更新
@@ -191,7 +195,7 @@ export class OmikujiProcessor {
   const result: { [id: string]: string | number | boolean } = {};
 
   for (const param of scriptParams) {
-   if (inputParams[param.id]) {
+   if (Object.prototype.hasOwnProperty.call(inputParams, param.id)) {
     result[param.id] = this.convertScriptParam(inputParams[param.id], param.type);
    }
   }
