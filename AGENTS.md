@@ -74,3 +74,14 @@
 - [x] タイマー破棄テストを追加
 - [x] Jest実行対象パスを修正
 - [ ] Jest・ビルド実行による検証
+
+
+## 追加修正・レビュー（2026-11-13）
+- `src/Modules/tasks/OmikujiProcess.ts`: スクリプト引数の存在判定をtruthy判定からown-property判定へ変更。明示値 `false` / `0` / 空文字を有効な入力として変換対象に含める。回帰テストを追加。
+- 同ファイル: スクリプト投稿と通常投稿は非同期のまま維持しつつ、rejectをcatchしてsystemMessageへ通知するよう変更。コメント処理を投稿遅延でブロックしない既存動作は維持する。
+- `src/Modules/api/PostMessage.ts`: 投稿アクション内部で送信Promiseをawaitするよう変更。これによりPostMessage.post()のPromiseが実際の送信失敗を捕捉できる。キャラクター辞書未指定時も例外にならないようoptional chainingを追加。
+- `src/test/OmikujiProcessor.test.ts`: false / 0 / 空文字が保持されることを確認するテストを追加。
+- Jest・ビルドは未実行。テスト追加・コード変更の実行時検証は残る。
+
+## 追加の未解決レビュー事項
+- `PostMessage.post()` は `Promise.all` で投稿を並行実行する一方、コメントには「順次処理を保証」とある。delaySecondsを使った同時投稿制御の意図を確認する必要があり、現時点では変更しない。
