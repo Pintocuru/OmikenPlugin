@@ -107,3 +107,5 @@
 - `src/Modules/core/InitDataLoader.ts`: JSONファイルの読み込み失敗時に `null` をデータ辞書へ格納していた問題を修正。nullデータは登録せずスキップし、既存のエラーログを残す。破損したプリセット等がnullとして後続処理へ流れることを防ぐ。
 - `src/Modules/api/PostMessage.ts`: `Promise.all` で投稿を並行開始しているが、コメントは「順次処理を保証」と記載。`delaySeconds` は共通の起点から個別に待つ実装のため、単純なfor-awaitへの変更は遅延の意味を変える可能性がある。投稿順序の仕様を確定できないため変更保留。
 - `readJsonFile` はJSON構文エラー・ファイル欠損時もnullを返し、呼び出し側でスキップする。ログを確認して個別ファイルを修復できる運用を想定。起動時の必須データと任意データの区別は未確認。
+
+- Jest設定（jest.config.js / ts-jest）と依存関係は存在することを確認。package.jsonのtest:pluginはWindows向け `set NODE_ENV=development&& jest src/test` に修正済み。GitHub上の静的確認ではテスト検出対象がsrc/testとなることを確認したが、実行結果は未確認。
