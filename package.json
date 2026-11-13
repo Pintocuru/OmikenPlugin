@@ -15,7 +15,7 @@
   "onecomme"
  ],
  "dependencies": {
-  "@onecomme.com/onesdk": "^9.2.0-beta.1",
+  "@onecomme.com/onesdk": "9.2.0-beta.1",
   "@rollup/plugin-commonjs": "^28.0.9",
   "@rollup/plugin-node-resolve": "^16.0.3"
  },
