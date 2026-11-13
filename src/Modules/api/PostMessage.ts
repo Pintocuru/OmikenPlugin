@@ -19,7 +19,7 @@ export class PostMessage {
    // 枠情報の取得
    this.services = await this.serviceAPI.getServices();
 
-   // 順次処理を保証
+   // 各投稿を開始時刻基準のdelaySecondsで並行スケジュールし、完了を待つ
    await Promise.all(
     this.posts.map(async (post) => {
      const chara = post.type === 'onecomme' ? this.charas?.[post.botKey] : undefined;
